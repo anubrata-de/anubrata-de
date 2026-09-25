@@ -224,19 +224,33 @@ Application focused on generating presentations from user prompts.
 
 <p align="center">
   <img
-    src="https://github-readme-stats.vercel.app/api?username=anubrata-de&show_icons=true&theme=tokyonight&hide_border=true&rank_icon=github"
-    height="180"
-  />
-  <img
-    src="https://github-readme-stats.vercel.app/api/top-langs/?username=anubrata-de&layout=compact&theme=tokyonight&hide_border=true"
-    height="180"
+    src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=anubrata-de&theme=radical"
+    width="100%"
   />
 </p>
 
 <p align="center">
   <img
-    src="https://streak-stats.demolab.com/?user=anubrata-de&theme=tokyonight&hide_border=true"
-    height="180"
+    src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=anubrata-de&theme=radical"
+    width="49%"
+  />
+  <img
+    src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=anubrata-de&theme=radical"
+    width="49%"
+  />
+</p>
+
+<p align="center">
+  <img
+    src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=anubrata-de&theme=radical"
+    width="49%"
+  />
+</p>
+
+<p align="center">
+  <img
+    src="https://streak-stats.demolab.com/?user=anubrata-de&theme=radical&hide_border=true"
+    width="70%"
   />
 </p>
 
