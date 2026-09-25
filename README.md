@@ -1,34 +1,22 @@
-<img width="1584" height="396" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=Anubrata%20De&fontSize=60&fontAlignY=35&animation=twinkling&fontColor=ffffff" />
+<p align="center">
+  <img src="./assets/anubrata-terminal.png" alt="Anubrata De - Developer Profile" width="100%" />
+</p>
 
 <p align="left">
   <img src="https://komarev.com/ghpvc/?username=anubrata-de&label=Profile%20views&color=0e75b6&style=flat" alt="anubrata-de" />
 </p>
 
-# Hi, I'm Anubrata De
-
-**Data Science student at IIT Madras** interested in machine learning, data analysis, and building practical AI applications.
-
-I work primarily with Python and have experience building machine learning models, LLM-powered applications, REST APIs, and full-stack systems.
-
-<a href="https://www.linkedin.com/in/anubratade/">
-  <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
-</a>
-<a href="https://github.com/anubrata-de">
-  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" />
-</a>
-<a href="https://www.instagram.com/anubrata.de/">
-  <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" />
-</a>
-
----
-
-## About
-
-- Data Science student at **IIT Madras**
-- Interested in **machine learning, data analysis and AI applications**
-- Building applications with **LLMs and autonomous data-analysis workflows**
-- Experience with **Flask, VueJS, SQLite, Redis and Celery**
-- Interested in turning data and models into usable products
+<p align="center">
+  <a href="https://www.linkedin.com/in/anubratade/">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
+  </a>
+  <a href="https://github.com/anubrata-de">
+    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+  <a href="https://www.instagram.com/anubrata.de/">
+    <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" />
+  </a>
+</p>
 
 ---
 
@@ -164,6 +152,7 @@ Application focused on generating presentations from user prompts.
 
 <table>
 <tr>
+
 <td width="25%" align="center">
 
 **Hotel Booking Cancellation**
@@ -203,6 +192,7 @@ Application focused on generating presentations from user prompts.
 <img src="https://img.shields.io/badge/Time%20Series-F59E0B?style=flat-square" />
 
 </td>
+
 </tr>
 </table>
 
