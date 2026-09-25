@@ -20,7 +20,7 @@
 
 ---
 
-## Projects
+## 🧩 Projects
 
 <table>
 <tr>
@@ -148,7 +148,7 @@ Application focused on generating presentations from user prompts.
 
 ---
 
-## Machine Learning
+## 🧠 Machine Learning
 
 <table>
 <tr>
@@ -198,7 +198,7 @@ Application focused on generating presentations from user prompts.
 
 ---
 
-# Tech Stack
+## 🛠️ Tech Stack
 
 ### Languages
 
@@ -220,42 +220,34 @@ Application focused on generating presentations from user prompts.
 
 ---
 
-## GitHub Stats
-
-<div align="center">
-
-<img height="158em" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=anubrata-de&theme=radical">
-
-<img height="158em" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=anubrata-de&theme=radical">
-
-<img height="160em" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=anubrata-de&theme=radical">
-
-<img height="160em" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=anubrata-de&theme=radical">
-
-</div>
-
-<br>
-
-<div align="center">
-
-<img height="169em" src="https://github-readme-stats.vercel.app/api?username=anubrata-de&theme=radical&hide_border=false&include_all_commits=true&count_private=true">
-
-<img height="169em" src="https://github-readme-streak-stats.herokuapp.com/?user=anubrata-de&theme=radical">
-
-</div>
-
-<br>
+## 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=anubrata-de&theme=dark&hide_border=false&include_all_commits=true&count_private=true&layout=compact" />
+  <img
+    src="https://github-readme-stats.vercel.app/api?username=anubrata-de&show_icons=true&theme=tokyonight&hide_border=true&rank_icon=github"
+    height="180"
+  />
+  <img
+    src="https://github-readme-stats.vercel.app/api/top-langs/?username=anubrata-de&layout=compact&theme=tokyonight&hide_border=true"
+    height="180"
+  />
+</p>
+
+<p align="center">
+  <img
+    src="https://streak-stats.demolab.com/?user=anubrata-de&theme=tokyonight&hide_border=true"
+    height="180"
+  />
 </p>
 
 ---
 
-## Contribution Activity
+## 🐍 Contribution Activity
 
 <div align="center">
-  <img src="https://profile-readme-generator.com/assets/snake.svg" alt="Contribution Snake" />
+
+<img src="https://profile-readme-generator.com/assets/snake.svg" alt="Contribution Snake" />
+
 </div>
 
 ---
