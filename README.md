@@ -34,53 +34,120 @@ I work primarily with Python and have experience building machine learning model
 
 ## Projects
 
+<table>
+<tr>
+<td width="50%" valign="top">
+
 ### Data Analyst Agent
 
-An LLM-powered data analysis application that accepts natural-language tasks along with CSV, JSON and image inputs.
+LLM-powered data analysis and visualization workflow that accepts natural-language tasks with data files and produces automated analysis.
 
-The system can source and process data, perform analysis, generate visualizations and return structured results through an API.
+**Python · LLM · Data Analysis**
 
-**Python · LLMs · REST API · Data Analysis**
+<br>
 
-### Cinema Audience Forecasting
+<a href="https://github.com/anubrata-de/LLM_Agent">
+<img src="https://img.shields.io/badge/View%20Repository-181717?style=for-the-badge&logo=github&logoColor=white" />
+</a>
 
-A time-series forecasting project focused on predicting daily cinema audience counts across multiple theatres.
+</td>
 
-The workflow combines booking trends, theatre information and calendar data to generate predictions for unseen dates.
-
-**Python · Time Series · Machine Learning**
+<td width="50%" valign="top">
 
 ### ParkEase
 
-A smart vehicle parking management system with separate customer and administrator workflows.
-
-Includes dynamic parking allocation, availability tracking, booking management, authentication, Redis caching and asynchronous background tasks.
+Full-stack vehicle parking management system with booking, dynamic allocation, authentication, caching and background tasks.
 
 **Flask · VueJS · SQLite · Redis · Celery**
 
-### Placement Portal Application
+<br>
 
-A role-based recruitment management platform for students, companies and administrators.
+<a href="https://github.com/anubrata-de/ParkEase">
+<img src="https://img.shields.io/badge/View%20Repository-181717?style=for-the-badge&logo=github&logoColor=white" />
+</a>
 
-Features include placement-drive creation, student applications, eligibility filtering, reminders, reports and CSV-based workflows.
+</td>
+</tr>
+
+<tr>
+<td width="50%" valign="top">
+
+### Placement Portal
+
+Role-based recruitment platform for students, companies and administrators with placement drives, applications and eligibility management.
 
 **Flask · VueJS · SQLite · Redis · Celery**
 
-### Virtual Teaching Assistant for TDS
+<br>
 
-An AI-powered assistant developed for the IIT Madras Tools in Data Science course.
+<a href="https://github.com/anubrata-de/placement_portal">
+<img src="https://img.shields.io/badge/View%20Repository-181717?style=for-the-badge&logo=github&logoColor=white" />
+</a>
 
-It uses course material and Discourse discussions to provide contextual answers and references through a REST API.
+</td>
+
+<td width="50%" valign="top">
+
+### Virtual Teaching Assistant
+
+AI-powered assistant for IIT Madras TDS that uses course material and discussions to provide contextual answers and references.
 
 **Python · Flask · Web Scraping · REST API**
 
-### Machine Learning Projects
+<br>
 
-- **Hotel Booking Cancellation Prediction** — classification model for predicting booking cancellations.
-- **House Price Prediction** — regression model for house-price prediction using mixed tabular features.
-- **Movie Review Sentiment Prediction** — multiclass sentiment classification for negative, neutral and positive reviews.
+<a href="https://github.com/anubrata-de/TDS-VIRTUAL-TA">
+<img src="https://img.shields.io/badge/View%20Repository-181717?style=for-the-badge&logo=github&logoColor=white" />
+</a>
+
+</td>
+</tr>
+
+<tr>
+<td width="50%" valign="top">
+
+### Quiz Master V1
+
+Multi-user exam preparation platform built as a web application.
+
+**Flask · SQLite · Bootstrap**
+
+<br>
+
+<a href="https://github.com/anubrata-de/Quiz-Master-V1">
+<img src="https://img.shields.io/badge/View%20Repository-181717?style=for-the-badge&logo=github&logoColor=white" />
+</a>
+
+</td>
+
+<td width="50%" valign="top">
+
+### Prompt2PPT
+
+Application focused on generating presentations from user prompts.
+
+**Python · AI**
+
+<br>
+
+<a href="https://github.com/anubrata-de/Promt2PPT">
+<img src="https://img.shields.io/badge/View%20Repository-181717?style=for-the-badge&logo=github&logoColor=white" />
+</a>
+
+</td>
+</tr>
+</table>
 
 ---
+
+### Machine Learning
+
+| Project | Type |
+|---|---|
+| Hotel Booking Cancellation | Classification |
+| House Price Prediction | Regression |
+| Movie Review Sentiment | Multiclass Classification |
+| Cinema Audience Forecasting | Time Series |
 
 # Tech Stack
 
