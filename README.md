@@ -36,118 +36,177 @@ I work primarily with Python and have experience building machine learning model
 
 <table>
 <tr>
+
 <td width="50%" valign="top">
 
-### Data Analyst Agent
+<h3>Data Analyst Agent</h3>
 
 LLM-powered data analysis and visualization workflow that accepts natural-language tasks with data files and produces automated analysis.
 
-**Python · LLM · Data Analysis**
-
-<br>
+<p>
+<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
+<img src="https://img.shields.io/badge/LLM-7C3AED?style=flat-square" />
+<img src="https://img.shields.io/badge/Data%20Analysis-0891B2?style=flat-square" />
+</p>
 
 <a href="https://github.com/anubrata-de/LLM_Agent">
-<img src="https://img.shields.io/badge/View%20Repository-181717?style=for-the-badge&logo=github&logoColor=white" />
+<img src="https://img.shields.io/badge/View%20Repository-7C3AED?style=for-the-badge&logo=github&logoColor=white" />
 </a>
 
 </td>
 
 <td width="50%" valign="top">
 
-### ParkEase
+<h3>ParkEase</h3>
 
 Full-stack vehicle parking management system with booking, dynamic allocation, authentication, caching and background tasks.
 
-**Flask · VueJS · SQLite · Redis · Celery**
-
-<br>
+<p>
+<img src="https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white" />
+<img src="https://img.shields.io/badge/Vue.js-42B883?style=flat-square&logo=vuedotjs&logoColor=white" />
+<img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white" />
+<img src="https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white" />
+</p>
 
 <a href="https://github.com/anubrata-de/ParkEase">
-<img src="https://img.shields.io/badge/View%20Repository-181717?style=for-the-badge&logo=github&logoColor=white" />
+<img src="https://img.shields.io/badge/View%20Repository-059669?style=for-the-badge&logo=github&logoColor=white" />
 </a>
 
 </td>
+
 </tr>
 
 <tr>
+
 <td width="50%" valign="top">
 
-### Placement Portal
+<h3>Placement Portal</h3>
 
 Role-based recruitment platform for students, companies and administrators with placement drives, applications and eligibility management.
 
-**Flask · VueJS · SQLite · Redis · Celery**
-
-<br>
+<p>
+<img src="https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white" />
+<img src="https://img.shields.io/badge/Vue.js-42B883?style=flat-square&logo=vuedotjs&logoColor=white" />
+<img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white" />
+<img src="https://img.shields.io/badge/Celery-37814A?style=flat-square&logo=celery&logoColor=white" />
+</p>
 
 <a href="https://github.com/anubrata-de/placement_portal">
-<img src="https://img.shields.io/badge/View%20Repository-181717?style=for-the-badge&logo=github&logoColor=white" />
+<img src="https://img.shields.io/badge/View%20Repository-2563EB?style=for-the-badge&logo=github&logoColor=white" />
 </a>
 
 </td>
 
 <td width="50%" valign="top">
 
-### Virtual Teaching Assistant
+<h3>Virtual Teaching Assistant</h3>
 
 AI-powered assistant for IIT Madras TDS that uses course material and discussions to provide contextual answers and references.
 
-**Python · Flask · Web Scraping · REST API**
-
-<br>
+<p>
+<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
+<img src="https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white" />
+<img src="https://img.shields.io/badge/Web%20Scraping-F59E0B?style=flat-square" />
+<img src="https://img.shields.io/badge/REST%20API-0891B2?style=flat-square" />
+</p>
 
 <a href="https://github.com/anubrata-de/TDS-VIRTUAL-TA">
-<img src="https://img.shields.io/badge/View%20Repository-181717?style=for-the-badge&logo=github&logoColor=white" />
+<img src="https://img.shields.io/badge/View%20Repository-DB2777?style=for-the-badge&logo=github&logoColor=white" />
 </a>
 
 </td>
+
 </tr>
 
 <tr>
+
 <td width="50%" valign="top">
 
-### Quiz Master V1
+<h3>Quiz Master V1</h3>
 
 Multi-user exam preparation platform built as a web application.
 
-**Flask · SQLite · Bootstrap**
-
-<br>
+<p>
+<img src="https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white" />
+<img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white" />
+<img src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat-square&logo=bootstrap&logoColor=white" />
+</p>
 
 <a href="https://github.com/anubrata-de/Quiz-Master-V1">
-<img src="https://img.shields.io/badge/View%20Repository-181717?style=for-the-badge&logo=github&logoColor=white" />
+<img src="https://img.shields.io/badge/View%20Repository-9333EA?style=for-the-badge&logo=github&logoColor=white" />
 </a>
 
 </td>
 
 <td width="50%" valign="top">
 
-### Prompt2PPT
+<h3>Prompt2PPT</h3>
 
 Application focused on generating presentations from user prompts.
 
-**Python · AI**
+<p>
+<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
+<img src="https://img.shields.io/badge/AI-F97316?style=flat-square" />
+</p>
+
+<a href="https://github.com/anubrata-de/Promt2PPT">
+<img src="https://img.shields.io/badge/View%20Repository-0891B2?style=for-the-badge&logo=github&logoColor=white" />
+</a>
+
+</td>
+
+</tr>
+</table>
+
+---
+
+## Machine Learning
+
+<table>
+<tr>
+<td width="25%" align="center">
+
+**Hotel Booking Cancellation**
 
 <br>
 
-<a href="https://github.com/anubrata-de/Promt2PPT">
-<img src="https://img.shields.io/badge/View%20Repository-181717?style=for-the-badge&logo=github&logoColor=white" />
-</a>
+<img src="https://img.shields.io/badge/Classification-2563EB?style=flat-square" />
+
+</td>
+
+<td width="25%" align="center">
+
+**House Price Prediction**
+
+<br>
+
+<img src="https://img.shields.io/badge/Regression-059669?style=flat-square" />
+
+</td>
+
+<td width="25%" align="center">
+
+**Movie Review Sentiment**
+
+<br>
+
+<img src="https://img.shields.io/badge/Multiclass-9333EA?style=flat-square" />
+
+</td>
+
+<td width="25%" align="center">
+
+**Cinema Audience Forecasting**
+
+<br>
+
+<img src="https://img.shields.io/badge/Time%20Series-F59E0B?style=flat-square" />
 
 </td>
 </tr>
 </table>
 
 ---
-
-### Machine Learning
-
-| Project | Type |
-|---|---|
-| Hotel Booking Cancellation | Classification |
-| House Price Prediction | Regression |
-| Movie Review Sentiment | Multiclass Classification |
-| Cinema Audience Forecasting | Time Series |
 
 # Tech Stack
 
@@ -199,14 +258,6 @@ Application focused on generating presentations from user prompts.
 
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=anubrata-de&theme=dark&hide_border=false&include_all_commits=true&count_private=true&layout=compact" />
-</p>
-
----
-
-## GitHub Trophies
-
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=anubrata-de&theme=radical&no-frame=false&no-bg=false&margin-w=4" />
 </p>
 
 ---
