@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/anubrata-terminal.png" alt="Anubrata De - Developer Profile" width="100%" />
+  <img src="./assets/header.png" alt="Anubrata De - Data Science Student at IIT Madras" width="100%" />
 </p>
 
 <p align="left">
@@ -406,44 +406,6 @@ Analysed a readymade garments shop's costs, revenue and market position from pri
 <tr><td><b>Areas</b></td><td><code>Audio</code> <code>Business analysis</code> <code>Business strategy</code> <code>Classification</code> <code>Computer vision</code> <code>DenseNet</code> <code>Estimation</code> <code>Financial analysis</code> <code>NLP</code> <code>Regression</code> <code>Root-cause analysis</code> <code>TF-IDF</code> <code>Time series</code> <code>Web scraping</code></td></tr>
 </table>
 <!-- STACK:END -->
-
----
-
-## 📊 GitHub Stats
-
-<sub>Redrawn every day from my GitHub data by this repository's workflow.</sub>
-
-<p align="center">
-  <img
-    src="./assets/stats/profile-details.svg"
-    width="100%"
-  />
-</p>
-
-<p align="center">
-  <img
-    src="./assets/stats/stats.svg"
-    width="49%"
-  />
-  <img
-    src="./assets/stats/repos-per-language.svg"
-    width="49%"
-  />
-</p>
-
-<p align="center">
-  <img
-    src="./assets/stats/commits-per-language.svg"
-    width="49%"
-  />
-</p>
-
-<p align="center">
-  <img
-    src="./assets/stats/streak.svg"
-    width="70%"
-  />
-</p>
 
 ---
 

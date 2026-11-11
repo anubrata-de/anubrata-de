@@ -10,8 +10,6 @@
  *
  * Only the text between each START/END marker pair is replaced.
  *
- * The GitHub Stats section below them is written by hand and left alone.
- *
  * Usage: node scripts/build-readme.mjs [path-or-url-to-projects-json]
  */
 import { readFile, writeFile } from "node:fs/promises";
