@@ -30,7 +30,7 @@
 <!-- PROJECTS:START -->
 ## 🧩 Projects
 
-<sub>14 projects, updated automatically from my repositories. Details for each are on <a href="https://anubrata.vercel.app/projects">my portfolio</a>.</sub>
+<sub>15 projects, updated automatically from my repositories. Details for each are on <a href="https://anubrata.vercel.app/projects">my portfolio</a>.</sub>
 
 ### 🤖 LLM agents and apps
 
@@ -54,8 +54,34 @@ Turns bulk text or Markdown into a PowerPoint deck in the style of any uploaded 
 
 <a href="https://github.com/anubrata-de/Promt2PPT"><img src="https://img.shields.io/badge/Repository-7C3AED?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
 <a href="https://anubrata.vercel.app/projects/prompt2ppt"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
+<a href="https://promt2-ppt.vercel.app"><img src="https://img.shields.io/badge/Live-1D1B22?style=for-the-badge&logo=vercel&logoColor=white" alt="Live" /></a>
 
 </td>
+
+<td width="50%" valign="top">
+
+<h3>Virtual Teaching Assistant</h3>
+
+<em>Tools in Data Science (TDS), IIT Madras</em>
+
+Answers student questions for the TDS course from scraped course content and Discourse forum posts, returning context-aware answers with references as JSON in under 30 seconds.
+
+<p>
+<img src="https://img.shields.io/badge/Python-7C3AED?style=flat-square" alt="Python" />
+<img src="https://img.shields.io/badge/FastAPI-7C3AED?style=flat-square" alt="FastAPI" />
+<img src="https://img.shields.io/badge/Embeddings-7C3AED?style=flat-square" alt="Embeddings" />
+<img src="https://img.shields.io/badge/Web%20scraping-7C3AED?style=flat-square" alt="Web scraping" />
+</p>
+
+<a href="https://github.com/anubrata-de/TDS-VIRTUAL-TA"><img src="https://img.shields.io/badge/Repository-7C3AED?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
+<a href="https://anubrata.vercel.app/projects/tds-virtual-ta"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
+<a href="https://tds-virtual-ta-steel.vercel.app"><img src="https://img.shields.io/badge/Live-1D1B22?style=for-the-badge&logo=vercel&logoColor=white" alt="Live" /></a>
+
+</td>
+
+</tr>
+
+<tr>
 
 <td width="50%" valign="top">
 
@@ -74,12 +100,9 @@ A minimal browser-based agent that reasons in a loop and calls tools as the mode
 
 <a href="https://github.com/anubrata-de/LLM_Agent"><img src="https://img.shields.io/badge/Repository-7C3AED?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
 <a href="https://anubrata.vercel.app/projects/browser-llm-agent"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
+<a href="https://llm-agent-teal.vercel.app"><img src="https://img.shields.io/badge/Live-1D1B22?style=for-the-badge&logo=vercel&logoColor=white" alt="Live" /></a>
 
 </td>
-
-</tr>
-
-<tr>
 
 <td width="50%" valign="top">
 
@@ -102,26 +125,6 @@ Takes a task in plain English with optional CSV, JSON or image attachments, then
 
 </td>
 
-<td width="50%" valign="top">
-
-<h3>Virtual Teaching Assistant</h3>
-
-<em>Tools in Data Science (TDS), IIT Madras</em>
-
-Answers student questions for the TDS course from scraped course content and Discourse forum posts, returning context-aware answers with references as JSON in under 30 seconds.
-
-<p>
-<img src="https://img.shields.io/badge/Python-7C3AED?style=flat-square" alt="Python" />
-<img src="https://img.shields.io/badge/FastAPI-7C3AED?style=flat-square" alt="FastAPI" />
-<img src="https://img.shields.io/badge/Embeddings-7C3AED?style=flat-square" alt="Embeddings" />
-<img src="https://img.shields.io/badge/Web%20scraping-7C3AED?style=flat-square" alt="Web scraping" />
-</p>
-
-<a href="https://github.com/anubrata-de/TDS-VIRTUAL-TA"><img src="https://img.shields.io/badge/Repository-7C3AED?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
-<a href="https://anubrata.vercel.app/projects/tds-virtual-ta"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
-
-</td>
-
 </tr>
 </table>
 
@@ -129,6 +132,27 @@ Answers student questions for the TDS course from scraped course content and Dis
 
 <table>
 <tr>
+
+<td width="50%" valign="top">
+
+<h3>Quiz Master V1</h3>
+
+<em>Multi-User Exam Preparation Platform</em>
+
+Admins manage subjects, chapters and quizzes; students take timed quizzes with a live countdown and auto-submit, then track their results.
+
+<p>
+<img src="https://img.shields.io/badge/Flask-059669?style=flat-square" alt="Flask" />
+<img src="https://img.shields.io/badge/Jinja2-059669?style=flat-square" alt="Jinja2" />
+<img src="https://img.shields.io/badge/SQLite-059669?style=flat-square" alt="SQLite" />
+<img src="https://img.shields.io/badge/Bootstrap-059669?style=flat-square" alt="Bootstrap" />
+</p>
+
+<a href="https://github.com/anubrata-de/Quiz-Master-V1"><img src="https://img.shields.io/badge/Repository-059669?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
+<a href="https://anubrata.vercel.app/projects/quiz-master-v1"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
+<a href="https://quiz-master-v1-liart.vercel.app"><img src="https://img.shields.io/badge/Live-1D1B22?style=for-the-badge&logo=vercel&logoColor=white" alt="Live" /></a>
+
+</td>
 
 <td width="50%" valign="top">
 
@@ -151,6 +175,10 @@ Lets admins, companies and students run campus recruitment: placement drives, ap
 
 </td>
 
+</tr>
+
+<tr>
+
 <td width="50%" valign="top">
 
 <h3>ParkEase</h3>
@@ -172,30 +200,6 @@ Role-based parking platform: admins manage lots, spots and users, and customers 
 
 </td>
 
-</tr>
-
-<tr>
-
-<td width="50%" valign="top">
-
-<h3>Quiz Master V1</h3>
-
-<em>Multi-User Exam Preparation Platform</em>
-
-Admins manage subjects, chapters and quizzes; students take timed quizzes with a live countdown and auto-submit, then track their results.
-
-<p>
-<img src="https://img.shields.io/badge/Flask-059669?style=flat-square" alt="Flask" />
-<img src="https://img.shields.io/badge/Jinja2-059669?style=flat-square" alt="Jinja2" />
-<img src="https://img.shields.io/badge/SQLite-059669?style=flat-square" alt="SQLite" />
-<img src="https://img.shields.io/badge/Bootstrap-059669?style=flat-square" alt="Bootstrap" />
-</p>
-
-<a href="https://github.com/anubrata-de/Quiz-Master-V1"><img src="https://img.shields.io/badge/Repository-059669?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
-<a href="https://anubrata.vercel.app/projects/quiz-master-v1"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
-
-</td>
-
 <td width="50%" valign="top"></td>
 
 </tr>
@@ -208,39 +212,41 @@ Admins manage subjects, chapters and quizzes; students take timed quizzes with a
 
 <td width="50%" valign="top">
 
-<h3>Cinema Audience Forecasting Challenge</h3>
+<h3>Chest X-Ray Disease Classification</h3>
 
-<em>Time Series Prediction</em>
+<em>DLGenAI NPPE 1 (Kaggle)</em>
 
-Forecasts daily audience counts across theatres from online and point-of-sale booking data, theatre metadata and calendar effects such as weekends and holidays.
+Classifies chest X-rays by finding despite heavy class imbalance, comparing DenseNet-121, EfficientNet-V2-S and ViT-B/16 backbones with a class-balanced sampler and focal loss.
 
 <p>
 <img src="https://img.shields.io/badge/Python-2563EB?style=flat-square" alt="Python" />
-<img src="https://img.shields.io/badge/Time%20series-2563EB?style=flat-square" alt="Time series" />
-<img src="https://img.shields.io/badge/Forecasting-2563EB?style=flat-square" alt="Forecasting" />
+<img src="https://img.shields.io/badge/PyTorch-2563EB?style=flat-square" alt="PyTorch" />
+<img src="https://img.shields.io/badge/Computer%20vision-2563EB?style=flat-square" alt="Computer vision" />
+<img src="https://img.shields.io/badge/DenseNet-2563EB?style=flat-square" alt="DenseNet" />
 </p>
 
-<a href="https://github.com/anubrata-de/cinema-audience-forecasting"><img src="https://img.shields.io/badge/Repository-2563EB?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
-<a href="https://anubrata.vercel.app/projects/cinema-audience-forecasting"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
+<a href="https://github.com/anubrata-de/chest-xray-disease-classification"><img src="https://img.shields.io/badge/Repository-2563EB?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
+<a href="https://anubrata.vercel.app/projects/chest-xray-classification"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
 
 </td>
 
 <td width="50%" valign="top">
 
-<h3>Hotel Booking Cancellation Prediction</h3>
+<h3>Cinema Audience Forecasting Challenge</h3>
 
-<em>Binary classification</em>
+<em>Time Series Prediction</em>
 
-Predicts whether a hotel booking will be cancelled from customer, booking and stay features such as lead time, room type and booking history.
+Forecasts daily audience counts across theatres from booking, theatre and calendar data. Random Forest scored best (validation R² 0.51) and anchors a three-model ensemble.
 
 <p>
 <img src="https://img.shields.io/badge/Python-2563EB?style=flat-square" alt="Python" />
-<img src="https://img.shields.io/badge/Machine%20learning-2563EB?style=flat-square" alt="Machine learning" />
-<img src="https://img.shields.io/badge/Classification-2563EB?style=flat-square" alt="Classification" />
+<img src="https://img.shields.io/badge/scikit--learn-2563EB?style=flat-square" alt="scikit-learn" />
+<img src="https://img.shields.io/badge/XGBoost-2563EB?style=flat-square" alt="XGBoost" />
+<img src="https://img.shields.io/badge/Time%20series-2563EB?style=flat-square" alt="Time series" />
 </p>
 
-<a href="https://github.com/anubrata-de/hotel-booking-cancellation"><img src="https://img.shields.io/badge/Repository-2563EB?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
-<a href="https://anubrata.vercel.app/projects/hotel-booking-cancellation"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
+<a href="https://github.com/anubrata-de/cinema-audience-forecasting"><img src="https://img.shields.io/badge/Repository-2563EB?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
+<a href="https://anubrata.vercel.app/projects/cinema-audience-forecasting"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
 
 </td>
 
@@ -250,15 +256,37 @@ Predicts whether a hotel booking will be cancelled from customer, booking and st
 
 <td width="50%" valign="top">
 
+<h3>Movie Review Sentiment Prediction</h3>
+
+<em>Multiclass classification (NLP)</em>
+
+Classifies movie reviews as negative, neutral or positive with TF-IDF features and linear models, reaching 65% validation accuracy across the three classes.
+
+<p>
+<img src="https://img.shields.io/badge/Python-2563EB?style=flat-square" alt="Python" />
+<img src="https://img.shields.io/badge/scikit--learn-2563EB?style=flat-square" alt="scikit-learn" />
+<img src="https://img.shields.io/badge/NLP-2563EB?style=flat-square" alt="NLP" />
+<img src="https://img.shields.io/badge/TF--IDF-2563EB?style=flat-square" alt="TF-IDF" />
+</p>
+
+<a href="https://github.com/anubrata-de/movie-review-sentiment"><img src="https://img.shields.io/badge/Repository-2563EB?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
+<a href="https://anubrata.vercel.app/projects/movie-review-sentiment"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
+
+</td>
+
+<td width="50%" valign="top">
+
 <h3>House Price Prediction</h3>
 
 <em>Regression</em>
 
-Predicts house prices from mixed categorical and numerical data for a Kaggle competition, scored on R².
+Predicts house prices from mixed categorical and numerical data for a Kaggle competition, comparing linear, tree and boosted models on R².
 
 <p>
 <img src="https://img.shields.io/badge/Python-2563EB?style=flat-square" alt="Python" />
-<img src="https://img.shields.io/badge/Machine%20learning-2563EB?style=flat-square" alt="Machine learning" />
+<img src="https://img.shields.io/badge/scikit--learn-2563EB?style=flat-square" alt="scikit-learn" />
+<img src="https://img.shields.io/badge/XGBoost-2563EB?style=flat-square" alt="XGBoost" />
+<img src="https://img.shields.io/badge/LightGBM-2563EB?style=flat-square" alt="LightGBM" />
 <img src="https://img.shields.io/badge/Regression-2563EB?style=flat-square" alt="Regression" />
 </p>
 
@@ -267,28 +295,30 @@ Predicts house prices from mixed categorical and numerical data for a Kaggle com
 
 </td>
 
-<td width="50%" valign="top">
-
-<h3>Movie Review Sentiment Prediction</h3>
-
-<em>Multiclass classification (NLP)</em>
-
-Classifies movie reviews as negative, neutral or positive from review phrases combined with structured features.
-
-<p>
-<img src="https://img.shields.io/badge/Python-2563EB?style=flat-square" alt="Python" />
-<img src="https://img.shields.io/badge/NLP-2563EB?style=flat-square" alt="NLP" />
-<img src="https://img.shields.io/badge/Classification-2563EB?style=flat-square" alt="Classification" />
-</p>
-
-<a href="https://github.com/anubrata-de/movie-review-sentiment"><img src="https://img.shields.io/badge/Repository-2563EB?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
-<a href="https://anubrata.vercel.app/projects/movie-review-sentiment"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
-
-</td>
-
 </tr>
 
 <tr>
+
+<td width="50%" valign="top">
+
+<h3>Hotel Booking Cancellation Prediction</h3>
+
+<em>Binary classification</em>
+
+Predicts whether a hotel booking will be cancelled from customer, booking and stay features. Compared ten models; XGBoost reached 0.94 ROC-AUC on validation.
+
+<p>
+<img src="https://img.shields.io/badge/Python-2563EB?style=flat-square" alt="Python" />
+<img src="https://img.shields.io/badge/scikit--learn-2563EB?style=flat-square" alt="scikit-learn" />
+<img src="https://img.shields.io/badge/XGBoost-2563EB?style=flat-square" alt="XGBoost" />
+<img src="https://img.shields.io/badge/LightGBM-2563EB?style=flat-square" alt="LightGBM" />
+<img src="https://img.shields.io/badge/Classification-2563EB?style=flat-square" alt="Classification" />
+</p>
+
+<a href="https://github.com/anubrata-de/hotel-booking-cancellation"><img src="https://img.shields.io/badge/Repository-2563EB?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
+<a href="https://anubrata.vercel.app/projects/hotel-booking-cancellation"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
+
+</td>
 
 <td width="50%" valign="top">
 
@@ -300,17 +330,15 @@ Classifies music genres from noisy mashups of instrument stems taken from differ
 
 <p>
 <img src="https://img.shields.io/badge/Python-2563EB?style=flat-square" alt="Python" />
-<img src="https://img.shields.io/badge/Deep%20learning-2563EB?style=flat-square" alt="Deep learning" />
+<img src="https://img.shields.io/badge/PyTorch-2563EB?style=flat-square" alt="PyTorch" />
+<img src="https://img.shields.io/badge/librosa-2563EB?style=flat-square" alt="librosa" />
 <img src="https://img.shields.io/badge/Audio-2563EB?style=flat-square" alt="Audio" />
-<img src="https://img.shields.io/badge/CNN-2563EB?style=flat-square" alt="CNN" />
 </p>
 
 <a href="https://github.com/anubrata-de/DL-23f3001069-t12026"><img src="https://img.shields.io/badge/Repository-2563EB?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
 <a href="https://anubrata.vercel.app/projects/messy-mashup"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
 
 </td>
-
-<td width="50%" valign="top"></td>
 
 </tr>
 </table>
