@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="340" height="200" viewBox="0 0 340 200" role="img" aria-label="Stats">
+<title>Stats</title>
+<rect x="0.5" y="0.5" width="339" height="199" rx="6" fill="#141321"/>
+<text x="25" y="35" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="18" font-weight="600" fill="#fe428e">Stats</text>
+<circle cx="32" cy="70" r="4" fill="#f8d847"/>
+<text x="46" y="75" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="14" fill="#a9fef7">Total stars</text>
+<text x="315" y="75" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="14" font-weight="700" fill="#a9fef7" text-anchor="end">0</text>
+<circle cx="32" cy="95" r="4" fill="#f8d847"/>
+<text x="46" y="100" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="14" fill="#a9fef7">Commits in the last year</text>
+<text x="315" y="100" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="14" font-weight="700" fill="#a9fef7" text-anchor="end">68</text>
+<circle cx="32" cy="120" r="4" fill="#f8d847"/>
+<text x="46" y="125" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="14" fill="#a9fef7">Pull requests</text>
+<text x="315" y="125" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="14" font-weight="700" fill="#a9fef7" text-anchor="end">0</text>
+<circle cx="32" cy="145" r="4" fill="#f8d847"/>
+<text x="46" y="150" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="14" fill="#a9fef7">Issues</text>
+<text x="315" y="150" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="14" font-weight="700" fill="#a9fef7" text-anchor="end">0</text>
+<circle cx="32" cy="170" r="4" fill="#f8d847"/>
+<text x="46" y="175" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="14" fill="#a9fef7">Repos contributed to</text>
+<text x="315" y="175" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="14" font-weight="700" fill="#a9fef7" text-anchor="end">17</text>
+</svg>

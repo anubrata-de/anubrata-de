@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="340" height="200" viewBox="0 0 340 200" role="img" aria-label="Top languages by commit">
+<title>Top languages by commit</title>
+<rect x="0.5" y="0.5" width="339" height="199" rx="6" fill="#141321"/>
+<text x="25" y="35" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="18" font-weight="600" fill="#fe428e">Top languages by commit</text>
+<rect x="25" y="60" width="12" height="12" rx="2" fill="#f1e05a"/>
+<text x="45" y="71" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="12.5" fill="#a9fef7">JavaScript <tspan fill="#6e6a8a">27</tspan></text>
+<rect x="25" y="85" width="12" height="12" rx="2" fill="#3572A5"/>
+<text x="45" y="96" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="12.5" fill="#a9fef7">Python <tspan fill="#6e6a8a">21</tspan></text>
+<rect x="25" y="110" width="12" height="12" rx="2" fill="#3178c6"/>
+<text x="45" y="121" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="12.5" fill="#a9fef7">TypeScript <tspan fill="#6e6a8a">13</tspan></text>
+<rect x="25" y="135" width="12" height="12" rx="2" fill="#DA5B0B"/>
+<text x="45" y="146" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="12.5" fill="#a9fef7">Jupyter Notebook <tspan fill="#6e6a8a">5</tspan></text>
+<path d="M282.00 72.00 A40 40 0 0 1 303.63 145.65" fill="none" stroke="#f1e05a" stroke-width="14"/>
+<path d="M303.63 145.65 A40 40 0 0 1 242.41 117.69" fill="none" stroke="#3572A5" stroke-width="14"/>
+<path d="M242.41 117.69 A40 40 0 0 1 263.67 76.45" fill="none" stroke="#3178c6" stroke-width="14"/>
+<path d="M263.67 76.45 A40 40 0 0 1 282.00 72.00" fill="none" stroke="#DA5B0B" stroke-width="14"/>
+</svg>
