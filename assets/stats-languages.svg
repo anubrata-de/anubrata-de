@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="138" viewBox="0 0 840 138" role="img" aria-label="Main language of each repository">
+<title>Main language of each repository</title>
+<defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#e4e9f0" stroke-width="1"/></pattern></defs>
+<rect x="1" y="1" width="838" height="136" rx="14" fill="#fbfaf7"/>
+<rect x="1" y="1" width="838" height="136" rx="14" fill="url(#grid)"/>
+<rect x="1" y="1" width="838" height="136" rx="14" fill="none" stroke="#1d1b22" stroke-width="2"/>
+<text x="30" y="40" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#4f4c58">Main language of each repository</text>
+<rect x="30.0" y="58" width="290.5" height="18" fill="#3572A5" stroke="#1d1b22" stroke-width="1"/>
+<rect x="322.5" y="58" width="241.8" height="18" fill="#DA5B0B" stroke="#1d1b22" stroke-width="1"/>
+<rect x="566.3" y="58" width="193.0" height="18" fill="#f1e05a" stroke="#1d1b22" stroke-width="1"/>
+<rect x="761.3" y="58" width="46.8" height="18" fill="#3178c6" stroke="#1d1b22" stroke-width="1"/>
+<circle cx="36" cy="101" r="6" fill="#3572A5" stroke="#1d1b22" stroke-width="1"/>
+<text x="48" y="106" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1d1b22">Python <tspan fill="#4f4c58">6 repos</tspan></text>
+<circle cx="231" cy="101" r="6" fill="#DA5B0B" stroke="#1d1b22" stroke-width="1"/>
+<text x="243" y="106" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1d1b22">Jupyter Notebook <tspan fill="#4f4c58">5 repos</tspan></text>
+<circle cx="426" cy="101" r="6" fill="#f1e05a" stroke="#1d1b22" stroke-width="1"/>
+<text x="438" y="106" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1d1b22">JavaScript <tspan fill="#4f4c58">4 repos</tspan></text>
+<circle cx="621" cy="101" r="6" fill="#3178c6" stroke="#1d1b22" stroke-width="1"/>
+<text x="633" y="106" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#1d1b22">TypeScript <tspan fill="#4f4c58">1 repo</tspan></text>
+</svg>

@@ -394,11 +394,60 @@ Analysed a readymade garments shop's costs, revenue and market position from pri
 ---
 
 <!-- STACK:START -->
+## 🛠️ Tech Stack
+
+<sub>Collected automatically from my projects, most used first.</sub>
+
+### Languages
+
+<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" title="Used in 11 projects" />
+<img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white" alt="Jupyter" title="Used in 5 projects" />
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" title="Used in 3 projects" />
+<img src="https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=postgresql&logoColor=white" alt="SQL" title="Used in 1 project" />
+
+### Data and ML
+
+<img src="https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white" alt="scikit-learn" title="Used in 4 projects" />
+<img src="https://img.shields.io/badge/XGBoost-189FDD?style=for-the-badge" alt="XGBoost" title="Used in 3 projects" />
+<img src="https://img.shields.io/badge/LightGBM-02569B?style=for-the-badge" alt="LightGBM" title="Used in 2 projects" />
+<img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch" title="Used in 2 projects" />
+<img src="https://img.shields.io/badge/DuckDB-FFF000?style=for-the-badge&logo=duckdb&logoColor=black" alt="DuckDB" title="Used in 1 project" />
+<img src="https://img.shields.io/badge/librosa-5A3E8E?style=for-the-badge" alt="librosa" title="Used in 1 project" />
+<img src="https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="pandas" title="Used in 1 project" />
+
+### AI and LLMs
+
+<img src="https://img.shields.io/badge/LLM%20APIs-7C3AED?style=for-the-badge&logo=openai&logoColor=white" alt="LLM APIs" title="Used in 3 projects" />
+<img src="https://img.shields.io/badge/Embeddings-6D28D9?style=for-the-badge" alt="Embeddings" title="Used in 1 project" />
+<img src="https://img.shields.io/badge/Tool%20calling-5B21B6?style=for-the-badge" alt="Tool calling" title="Used in 1 project" />
+
+### Back end and front end
+
+<img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" title="Used in 3 projects" />
+<img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask" title="Used in 3 projects" />
+<img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite" title="Used in 3 projects" />
+<img src="https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap" title="Used in 2 projects" />
+<img src="https://img.shields.io/badge/Celery-37814A?style=for-the-badge&logo=celery&logoColor=white" alt="Celery" title="Used in 2 projects" />
+<img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white" alt="Redis" title="Used in 2 projects" />
+<img src="https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white" alt="Vue.js" title="Used in 2 projects" />
+<img src="https://img.shields.io/badge/Jinja2-B41717?style=for-the-badge&logo=jinja&logoColor=white" alt="Jinja2" title="Used in 1 project" />
+<img src="https://img.shields.io/badge/python--pptx-B7472A?style=for-the-badge" alt="python-pptx" title="Used in 1 project" />
+
+### Areas
+
+`Audio` `Business analysis` `Business strategy` `Classification` `Computer vision` `DenseNet` `Estimation` `Financial analysis` `NLP` `Regression` `Root-cause analysis` `TF-IDF` `Time series` `Web scraping`
 <!-- STACK:END -->
 
 ---
 
 <!-- STATS:START -->
+## 📊 GitHub Stats
+
+<sub>Drawn from my GitHub data every day by this repository's workflow.</sub>
+
+<p align="center"><img src="./assets/stats-overview.svg" alt="GitHub at a glance" width="100%" /></p>
+<p align="center"><img src="./assets/stats-languages.svg" alt="Main language of each repository" width="100%" /></p>
+<p align="center"><img src="./assets/stats-contributions.svg" alt="Contributions in the last year" width="100%" /></p>
 <!-- STATS:END -->
 
 ---
