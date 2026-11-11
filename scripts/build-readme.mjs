@@ -8,7 +8,7 @@
  *
  * Project data: github-projects.json in the Portfolio repo, itself generated daily
  * from every public repo on this account (anubrata-de/Portfolio, scripts/sync-projects.mjs).
- * Stats: GitHub's REST and GraphQL APIs, using the workflow's GITHUB_TOKEN.
+ * Stats: GitHub's REST API, using the workflow's GITHUB_TOKEN.
  *
  * Only the text between each START/END marker pair is replaced.
  *
@@ -155,28 +155,21 @@ function usage(data) {
 function stackBlock(data) {
   const byUse = usage(data);
   const plural = (n) => `${n} project${n === 1 ? "" : "s"}`;
-
-  const groups = GROUPS.map((g) => {
-    const tools = byUse.filter(([n]) => TOOLS[n]?.[0] === g);
-    if (!tools.length) return "";
-    const badges = tools.map(([n, c]) => {
-      const [, color, logo, logoColor = "white"] = TOOLS[n];
-      const src = `https://img.shields.io/badge/${badgeText(n)}-${color}?style=for-the-badge${logo ? `&logo=${logo}&logoColor=${logoColor}` : ""}`;
-      return `<img src="${src}" alt="${escapeHtml(n)}" title="Used in ${plural(c)}" />`;
-    });
-    return `### ${g}\n\n${badges.join("\n")}`;
-  }).filter(Boolean);
-
-  const areas = byUse.filter(([n]) => !TOOLS[n]).map(([n]) => `\`${n}\``);
+  const badge = ([n, c]) => {
+    const [, color, logo, logoColor = "white"] = TOOLS[n];
+    const src = `https://img.shields.io/badge/${badgeText(n)}-${color}?style=flat-square${logo ? `&logo=${logo}&logoColor=${logoColor}` : ""}`;
+    return `<img src="${src}" alt="${escapeHtml(n)}" title="Used in ${plural(c)}" />`;
+  };
+  const rows = GROUPS.map((g) => [g, byUse.filter(([n]) => TOOLS[n]?.[0] === g).map(badge).join(" ")]).filter(([, cells]) => cells);
+  const areas = byUse.filter(([n]) => !TOOLS[n]).map(([n]) => `<code>${escapeHtml(n)}</code>`).join(" ");
+  if (areas) rows.push(["Areas", areas]);
   return `## 🛠️ Tech Stack
 
 <sub>Collected automatically from my projects, most used first.</sub>
 
-${groups.join("\n\n")}
-
-### Areas
-
-${areas.join(" ")}`;
+<table>
+${rows.map(([g, cells]) => `<tr><td><b>${g}</b></td><td>${cells}</td></tr>`).join("\n")}
+</table>`;
 }
 
 // ---------- STATS ----------
@@ -227,51 +220,17 @@ async function fetchStats(token) {
     repos: own.length,
     stars: own.reduce((s, r) => s + r.stargazers_count, 0),
     languages: {},
-    calendar: null,
   };
   for (const r of own) if (r.language) stats.languages[r.language] = (stats.languages[r.language] || 0) + 1;
 
-  if (token) {
-    try {
-      const res = await fetch("https://api.github.com/graphql", {
-        method: "POST",
-        headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", "User-Agent": `${OWNER}-readme` },
-        body: JSON.stringify({
-          query: `query($login:String!){user(login:$login){contributionsCollection{contributionCalendar{totalContributions weeks{contributionDays{date contributionCount}}}}}}`,
-          variables: { login: OWNER },
-        }),
-      });
-      const json = await res.json();
-      const cal = json?.data?.user?.contributionsCollection?.contributionCalendar;
-      if (cal) stats.calendar = { total: cal.totalContributions, days: cal.weeks.flatMap((w) => w.contributionDays) };
-      else console.warn("No contribution calendar:", JSON.stringify(json.errors || json).slice(0, 300));
-    } catch (err) {
-      console.warn("Contribution calendar unavailable:", err.message);
-    }
-  }
   return stats;
-}
-
-function streaks(days) {
-  let longest = 0;
-  let run = 0;
-  for (const d of days) {
-    run = d.contributionCount > 0 ? run + 1 : 0;
-    longest = Math.max(longest, run);
-  }
-  // Today may not have activity yet, so the current streak can end yesterday.
-  let current = 0;
-  let i = days.length - 1;
-  if (i >= 0 && days[i].contributionCount === 0) i--;
-  for (; i >= 0 && days[i].contributionCount > 0; i--) current++;
-  return { current, longest };
 }
 
 function overviewSvg(data, stats) {
   const items = [
     [data.projects.length, "projects"],
     [stats.repos, "public repositories"],
-    stats.calendar ? [stats.calendar.total, "contributions in the last year"] : [stats.stars, "stars"],
+    [Object.keys(stats.languages).length, "languages"],
     [usage(data).filter(([n]) => TOOLS[n]).length, "tools and libraries"],
   ];
   const w = 840;
@@ -317,41 +276,6 @@ function languagesSvg(stats) {
   return frame(w, h, `${title}\n${segments}\n${legend}`, "Main language of each repository");
 }
 
-function contributionsSvg(stats) {
-  const days = stats.calendar.days;
-  const max = Math.max(...days.map((d) => d.contributionCount), 1);
-  const shade = (n) => (n === 0 ? "#ebe8e1" : ["#ffd9cf", "#ff9f87", SHU, "#a8301f"][Math.min(3, Math.floor((n / max) * 4 - 0.0001))]);
-  const cell = 13;
-  const gap = 3;
-  const x0 = 46;
-  const y0 = 64;
-  const first = new Date(`${days[0].date}T00:00:00Z`).getUTCDay();
-  let lastMonth = -1;
-  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  const parts = [];
-  days.forEach((d, i) => {
-    const idx = i + first;
-    const week = Math.floor(idx / 7);
-    const dow = idx % 7;
-    const x = x0 + week * (cell + gap);
-    const y = y0 + dow * (cell + gap);
-    parts.push(`<rect x="${x}" y="${y}" width="${cell}" height="${cell}" rx="3" fill="${shade(d.contributionCount)}"><title>${d.contributionCount} on ${d.date}</title></rect>`);
-    const month = new Date(`${d.date}T00:00:00Z`).getUTCMonth();
-    if (dow === 0 && month !== lastMonth) {
-      lastMonth = month;
-      parts.push(`<text x="${x}" y="${y0 - 8}" font-family="${FONT}" font-size="11" fill="${INK2}">${monthNames[month]}</text>`);
-    }
-  });
-  ["Mon", "Wed", "Fri"].forEach((label, i) =>
-    parts.push(`<text x="12" y="${y0 + (1 + i * 2) * (cell + gap) + 10}" font-family="${FONT}" font-size="11" fill="${INK2}">${label}</text>`),
-  );
-  const weeks = Math.ceil((days.length + first) / 7);
-  const w = x0 + weeks * (cell + gap) + 24;
-  const s = streaks(days);
-  const title = `<text x="30" y="34" font-family="${FONT}" font-size="15" font-weight="600" fill="${INK2}">${stats.calendar.total} contributions in the last year · current streak ${s.current} day${s.current === 1 ? "" : "s"}</text>`;
-  return frame(w, y0 + 7 * (cell + gap) + 18, `${title}\n${parts.join("\n")}`, `${stats.calendar.total} contributions in the last year`);
-}
-
 async function statsBlock(data) {
   const token = process.env.GITHUB_TOKEN;
   const stats = process.env.STATS_FIXTURE
@@ -369,10 +293,6 @@ async function statsBlock(data) {
     `<p align="center"><img src="./assets/stats-overview.svg" alt="GitHub at a glance" width="100%" /></p>`,
     `<p align="center"><img src="./assets/stats-languages.svg" alt="Main language of each repository" width="100%" /></p>`,
   ];
-  if (stats.calendar) {
-    await writeFile(new URL("stats-contributions.svg", assets), contributionsSvg(stats));
-    lines.push(`<p align="center"><img src="./assets/stats-contributions.svg" alt="Contributions in the last year" width="100%" /></p>`);
-  }
   return lines.join("\n");
 }
 
