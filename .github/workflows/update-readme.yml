@@ -1,5 +1,6 @@
 # Rebuilds the projects and tech stack sections of the profile README from the
-# portfolio's project data, which is synced from GitHub every morning.
+# portfolio's project data (synced from GitHub every morning), and redraws the
+# stats cards in assets/stats from live GitHub data.
 name: Update profile README
 
 on:
@@ -9,6 +10,7 @@ on:
   push:
     paths:
       - scripts/build-readme.mjs
+      - scripts/stats-cards.mjs
       - .github/workflows/update-readme.yml
 
 permissions:
@@ -31,14 +33,21 @@ jobs:
         run: node scripts/build-readme.mjs
         env:
           GITHUB_OWNER: ${{ github.repository_owner }}
+      - name: Draw the stats cards
+        # If GitHub's API has a bad moment, keep yesterday's cards rather than fail the job.
+        continue-on-error: true
+        run: node scripts/stats-cards.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_OWNER: ${{ github.repository_owner }}
       - name: Commit if anything changed
         run: |
-          git add README.md
+          git add README.md assets/stats
           if git diff --cached --quiet; then
             echo "No changes."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Update projects from GitHub"
+          git commit -m "Update projects and stats from GitHub"
           git push
