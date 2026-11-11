@@ -1,72 +1,45 @@
 #!/usr/bin/env node
 /**
- * Rebuilds the Projects section of README.md from the same data the portfolio
- * site uses, so the profile and the website always list the same projects with
- * the same names.
+ * Rebuilds the generated parts of README.md every day:
  *
- * Source: github-projects.json in the Portfolio repo, which is itself generated
- * daily from every public repo on this account (see anubrata-de/Portfolio,
- * scripts/sync-projects.mjs).
+ *   PROJECTS  every project, from the same data the portfolio site uses
+ *   STACK     tools and areas, collected from the projects' tags and languages
+ *   STATS     cards drawn from live GitHub data and saved in assets/
  *
- * Only the part of README.md between the PROJECTS:START and PROJECTS:END markers
- * is replaced. Everything else in the README is left as written.
+ * Project data: github-projects.json in the Portfolio repo, itself generated daily
+ * from every public repo on this account (anubrata-de/Portfolio, scripts/sync-projects.mjs).
+ * Stats: GitHub's REST and GraphQL APIs, using the workflow's GITHUB_TOKEN.
  *
- * Usage: node scripts/build-readme.mjs [path-or-url-to-json]
+ * Only the text between each START/END marker pair is replaced.
+ *
+ * Usage: node scripts/build-readme.mjs [path-or-url-to-projects-json]
+ *        STATS_FIXTURE=stats.json skips the API calls (for local testing).
  */
-import { readFile, writeFile } from "node:fs/promises";
+import { readFile, writeFile, mkdir } from "node:fs/promises";
 
+const OWNER = process.env.GITHUB_OWNER || "anubrata-de";
 const SOURCE =
-  process.argv[2] || "https://raw.githubusercontent.com/anubrata-de/Portfolio/main/src/data/github-projects.json";
-const README = new URL("../README.md", import.meta.url);
-const START = "<!-- PROJECTS:START -->";
-const END = "<!-- PROJECTS:END -->";
+  process.argv[2] || `https://raw.githubusercontent.com/${OWNER}/Portfolio/main/src/data/github-projects.json`;
+const ROOT = new URL("../", import.meta.url);
+const README = new URL("README.md", ROOT);
+const SITE = "https://anubrata.vercel.app";
 
-/** One look per category, so every card in a section matches. */
-const STYLE = {
-  "LLM agents and apps": { icon: "🤖", color: "7C3AED" },
-  "Full-stack apps": { icon: "🌐", color: "059669" },
-  "Machine learning": { icon: "🧠", color: "2563EB" },
-  "Business and data analysis": { icon: "📊", color: "DC2626" },
-  "Other projects": { icon: "🧩", color: "475569" },
-};
+// ---------- shared helpers ----------
 
-const escapeHtml = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+const escapeHtml = (s) =>
+  String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const badgeText = (s) => encodeURIComponent(s.replace(/-/g, "--").replace(/_/g, "__"));
-const tag = (label, color) =>
-  `<img src="https://img.shields.io/badge/${badgeText(label)}-${color}?style=flat-square" alt="${escapeHtml(label)}" />`;
-const button = (label, href, color, logo) =>
-  `<a href="${href}"><img src="https://img.shields.io/badge/${badgeText(label)}-${color}?style=for-the-badge${logo ? `&logo=${logo}&logoColor=white` : ""}" alt="${escapeHtml(label)}" /></a>`;
 
-function card(p, color) {
-  const site = `https://anubrata.vercel.app/projects/${p.slug}`;
-  return `<td width="50%" valign="top">
-
-<h3>${escapeHtml(p.title)}</h3>
-${p.tagline ? `\n<em>${escapeHtml(p.tagline)}</em>\n` : ""}
-${escapeHtml(p.summary)}
-
-<p>
-${p.tags.map((t) => tag(t, color)).join("\n")}
-</p>
-
-${button("Repository", p.url, color, "github")}
-${button("Details", site, "1D1B22")}${p.homepage ? `\n${button("Live", p.homepage, "1D1B22", "vercel")}` : ""}
-
-</td>`;
+function replaceBlock(readme, name, content) {
+  const start = `<!-- ${name}:START -->`;
+  const end = `<!-- ${name}:END -->`;
+  const a = readme.indexOf(start);
+  const b = readme.indexOf(end);
+  if (a === -1 || b === -1) throw new Error(`README.md is missing the ${name}:START / ${name}:END markers.`);
+  return `${readme.slice(0, a)}${start}\n${content}\n${end}${readme.slice(b + end.length)}`;
 }
 
-function section(category, projects) {
-  const { icon, color } = STYLE[category] || STYLE["Other projects"];
-  const rows = [];
-  for (let i = 0; i < projects.length; i += 2) {
-    const pair = projects.slice(i, i + 2).map((p) => card(p, color));
-    if (pair.length === 1) pair.push(`<td width="50%" valign="top"></td>`);
-    rows.push(`<tr>\n\n${pair.join("\n\n")}\n\n</tr>`);
-  }
-  return `### ${icon} ${category}\n\n<table>\n${rows.join("\n\n")}\n</table>`;
-}
-
-async function load(source) {
+async function loadJson(source) {
   if (/^https?:/.test(source)) {
     const res = await fetch(source);
     if (!res.ok) throw new Error(`Couldn't fetch ${source}: ${res.status}`);
@@ -75,32 +48,346 @@ async function load(source) {
   return JSON.parse(await readFile(source, "utf8"));
 }
 
-async function main() {
-  const data = await load(SOURCE);
+// ---------- PROJECTS ----------
+
+/** One look per category, so every card in a section matches. */
+const CATEGORY_STYLE = {
+  "LLM agents and apps": { icon: "🤖", color: "7C3AED" },
+  "Full-stack apps": { icon: "🌐", color: "059669" },
+  "Machine learning": { icon: "🧠", color: "2563EB" },
+  "Business and data analysis": { icon: "📊", color: "DC2626" },
+  "Other projects": { icon: "🧩", color: "475569" },
+};
+
+const smallBadge = (label, color) =>
+  `<img src="https://img.shields.io/badge/${badgeText(label)}-${color}?style=flat-square" alt="${escapeHtml(label)}" />`;
+const button = (label, href, color, logo) =>
+  `<a href="${href}"><img src="https://img.shields.io/badge/${badgeText(label)}-${color}?style=for-the-badge${logo ? `&logo=${logo}&logoColor=white` : ""}" alt="${escapeHtml(label)}" /></a>`;
+
+function card(p, color) {
+  return `<td width="50%" valign="top">
+
+<h3>${escapeHtml(p.title)}</h3>
+${p.tagline ? `\n<em>${escapeHtml(p.tagline)}</em>\n` : ""}
+${escapeHtml(p.summary)}
+
+<p>
+${p.tags.map((t) => smallBadge(t, color)).join("\n")}
+</p>
+
+${button("Repository", p.url, color, "github")}
+${button("Details", `${SITE}/projects/${p.slug}`, "1D1B22")}${p.homepage ? `\n${button("Live", p.homepage, "1D1B22", "vercel")}` : ""}
+
+</td>`;
+}
+
+function projectsBlock(data) {
   const sections = data.categories
     .map((c) => [c, data.projects.filter((p) => p.category === c)])
     .filter(([, list]) => list.length)
-    .map(([c, list]) => section(c, list));
+    .map(([category, list]) => {
+      const { icon, color } = CATEGORY_STYLE[category] || CATEGORY_STYLE["Other projects"];
+      const rows = [];
+      for (let i = 0; i < list.length; i += 2) {
+        const pair = list.slice(i, i + 2).map((p) => card(p, color));
+        if (pair.length === 1) pair.push(`<td width="50%" valign="top"></td>`);
+        rows.push(`<tr>\n\n${pair.join("\n\n")}\n\n</tr>`);
+      }
+      return `### ${icon} ${category}\n\n<table>\n${rows.join("\n\n")}\n</table>`;
+    });
+  return `## 🧩 Projects
 
-  const block = `${START}
-## 🧩 Projects
+<sub>${data.projects.length} projects, updated automatically from my repositories. Details for each are on <a href="${SITE}/projects">my portfolio</a>.</sub>
 
-<sub>${data.projects.length} projects, updated automatically from my repositories. Details for each are on <a href="https://anubrata.vercel.app/projects">my portfolio</a>.</sub>
+${sections.join("\n\n")}`;
+}
 
-${sections.join("\n\n")}
-${END}`;
+// ---------- STACK ----------
 
-  const readme = await readFile(README, "utf8");
-  const a = readme.indexOf(START);
-  const b = readme.indexOf(END);
-  if (a === -1 || b === -1) throw new Error("README.md is missing the PROJECTS:START / PROJECTS:END markers.");
-  const next = readme.slice(0, a) + block + readme.slice(b + END.length);
-  if (next === readme) {
-    console.log("No changes.");
-    return;
+/**
+ * Known tools: which group they belong to and how their badge looks.
+ * Any tag not listed here is treated as an area of work.
+ */
+const TOOLS = {
+  Python: ["Languages", "3776AB", "python"],
+  JavaScript: ["Languages", "F7DF1E", "javascript", "black"],
+  SQL: ["Languages", "4479A1", "postgresql"],
+  Jupyter: ["Languages", "F37626", "jupyter"],
+  pandas: ["Data and ML", "150458", "pandas"],
+  "scikit-learn": ["Data and ML", "F7931E", "scikitlearn"],
+  XGBoost: ["Data and ML", "189FDD"],
+  LightGBM: ["Data and ML", "02569B"],
+  PyTorch: ["Data and ML", "EE4C2C", "pytorch"],
+  librosa: ["Data and ML", "5A3E8E"],
+  DuckDB: ["Data and ML", "FFF000", "duckdb", "black"],
+  "LLM APIs": ["AI and LLMs", "7C3AED", "openai"],
+  Embeddings: ["AI and LLMs", "6D28D9"],
+  "Tool calling": ["AI and LLMs", "5B21B6"],
+  FastAPI: ["Back end and front end", "009688", "fastapi"],
+  Flask: ["Back end and front end", "000000", "flask"],
+  "Vue.js": ["Back end and front end", "4FC08D", "vuedotjs"],
+  Jinja2: ["Back end and front end", "B41717", "jinja"],
+  Bootstrap: ["Back end and front end", "7952B3", "bootstrap"],
+  SQLite: ["Back end and front end", "003B57", "sqlite"],
+  Redis: ["Back end and front end", "DC382D", "redis"],
+  Celery: ["Back end and front end", "37814A", "celery"],
+  "python-pptx": ["Back end and front end", "B7472A"],
+};
+const ALIASES = { "jupyter notebook": "Jupyter", "vue": "Vue.js", "vue 3": "Vue.js", "sklearn": "scikit-learn", "torch": "PyTorch" };
+const GROUPS = ["Languages", "Data and ML", "AI and LLMs", "Back end and front end"];
+
+function canonical(tag) {
+  const lower = tag.toLowerCase();
+  if (ALIASES[lower]) return ALIASES[lower];
+  return Object.keys(TOOLS).find((t) => t.toLowerCase() === lower) || tag;
+}
+
+function stackBlock(data) {
+  const counts = new Map();
+  for (const p of data.projects) {
+    const names = new Set([...p.tags, p.language].filter(Boolean).map(canonical));
+    for (const n of names) counts.set(n, (counts.get(n) || 0) + 1);
   }
-  await writeFile(README, next);
-  console.log(`Wrote ${data.projects.length} projects to README.md`);
+  const byUse = [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+  const plural = (n) => `${n} project${n === 1 ? "" : "s"}`;
+
+  const groups = GROUPS.map((g) => {
+    const tools = byUse.filter(([n]) => TOOLS[n]?.[0] === g);
+    if (!tools.length) return "";
+    const badges = tools.map(([n, c]) => {
+      const [, color, logo, logoColor = "white"] = TOOLS[n];
+      const src = `https://img.shields.io/badge/${badgeText(n)}-${color}?style=for-the-badge${logo ? `&logo=${logo}&logoColor=${logoColor}` : ""}`;
+      return `<img src="${src}" alt="${escapeHtml(n)}" title="Used in ${plural(c)}" />`;
+    });
+    return `### ${g}\n\n${badges.join("\n")}`;
+  }).filter(Boolean);
+
+  const areas = byUse.filter(([n]) => !TOOLS[n]).map(([n]) => `\`${n}\``);
+  return `## 🛠️ Tech Stack
+
+<sub>Collected automatically from my projects, most used first.</sub>
+
+${groups.join("\n\n")}
+
+### Areas
+
+${areas.join(" ")}`;
+}
+
+// ---------- STATS ----------
+
+const PAPER = "#fbfaf7";
+const INK = "#1d1b22";
+const INK2 = "#4f4c58";
+const SHU = "#e2442f";
+const FONT = "-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif";
+const LANG_COLORS = {
+  Python: "#3572A5",
+  JavaScript: "#f1e05a",
+  "Jupyter Notebook": "#DA5B0B",
+  HTML: "#e34c26",
+  CSS: "#563d7c",
+  TypeScript: "#3178c6",
+  Vue: "#41b883",
+  Shell: "#89e051",
+};
+
+const frame = (w, h, body, title) => `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-label="${escapeHtml(title)}">
+<title>${escapeHtml(title)}</title>
+<defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#e4e9f0" stroke-width="1"/></pattern></defs>
+<rect x="1" y="1" width="${w - 2}" height="${h - 2}" rx="14" fill="${PAPER}"/>
+<rect x="1" y="1" width="${w - 2}" height="${h - 2}" rx="14" fill="url(#grid)"/>
+<rect x="1" y="1" width="${w - 2}" height="${h - 2}" rx="14" fill="none" stroke="${INK}" stroke-width="2"/>
+${body}
+</svg>
+`;
+
+async function gh(path, token) {
+  const res = await fetch(`https://api.github.com${path}`, {
+    headers: { Accept: "application/vnd.github+json", "User-Agent": `${OWNER}-readme`, ...(token ? { Authorization: `Bearer ${token}` } : {}) },
+  });
+  if (!res.ok) throw new Error(`GitHub ${res.status} for ${path}`);
+  return res.json();
+}
+
+async function fetchStats(token) {
+  const repos = [];
+  for (let page = 1; ; page++) {
+    const batch = await gh(`/users/${OWNER}/repos?type=owner&per_page=100&page=${page}`, token);
+    repos.push(...batch);
+    if (batch.length < 100) break;
+  }
+  const own = repos.filter((r) => !r.fork && !r.private);
+  const stats = {
+    repos: own.length,
+    stars: own.reduce((s, r) => s + r.stargazers_count, 0),
+    languages: {},
+    calendar: null,
+  };
+  for (const r of own) if (r.language) stats.languages[r.language] = (stats.languages[r.language] || 0) + 1;
+
+  if (token) {
+    try {
+      const res = await fetch("https://api.github.com/graphql", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", "User-Agent": `${OWNER}-readme` },
+        body: JSON.stringify({
+          query: `query($login:String!){user(login:$login){contributionsCollection{contributionCalendar{totalContributions weeks{contributionDays{date contributionCount}}}}}}`,
+          variables: { login: OWNER },
+        }),
+      });
+      const json = await res.json();
+      const cal = json?.data?.user?.contributionsCollection?.contributionCalendar;
+      if (cal) stats.calendar = { total: cal.totalContributions, days: cal.weeks.flatMap((w) => w.contributionDays) };
+      else console.warn("No contribution calendar:", JSON.stringify(json.errors || json).slice(0, 300));
+    } catch (err) {
+      console.warn("Contribution calendar unavailable:", err.message);
+    }
+  }
+  return stats;
+}
+
+function streaks(days) {
+  let longest = 0;
+  let run = 0;
+  for (const d of days) {
+    run = d.contributionCount > 0 ? run + 1 : 0;
+    longest = Math.max(longest, run);
+  }
+  // Today may not have activity yet, so the current streak can end yesterday.
+  let current = 0;
+  let i = days.length - 1;
+  if (i >= 0 && days[i].contributionCount === 0) i--;
+  for (; i >= 0 && days[i].contributionCount > 0; i--) current++;
+  return { current, longest };
+}
+
+function overviewSvg(data, stats) {
+  const s = stats.calendar ? streaks(stats.calendar.days) : null;
+  const items = [
+    [data.projects.length, "projects"],
+    [stats.repos, "public repositories"],
+    stats.calendar ? [stats.calendar.total, "contributions in the last year"] : [stats.stars, "stars"],
+    s
+      ? [s.longest, "day longest streak", `current streak: ${s.current} day${s.current === 1 ? "" : "s"}`]
+      : [Object.keys(stats.languages).length, "languages"],
+  ];
+  const w = 840;
+  const col = (w - 60) / items.length;
+  const body = items
+    .map(
+      ([n, label, note], i) => `<g transform="translate(${30 + i * col} 0)">
+<text x="${col / 2}" y="92" text-anchor="middle" font-family="${FONT}" font-size="44" font-weight="700" fill="${i === 0 ? SHU : INK}">${n}</text>
+<text x="${col / 2}" y="122" text-anchor="middle" font-family="${FONT}" font-size="15" fill="${INK2}">${escapeHtml(label)}</text>${
+        note ? `\n<text x="${col / 2}" y="142" text-anchor="middle" font-family="${FONT}" font-size="13" fill="${SHU}">${escapeHtml(note)}</text>` : ""
+      }
+</g>`,
+    )
+    .join("\n");
+  const title = `<text x="30" y="40" font-family="${FONT}" font-size="15" font-weight="600" fill="${INK2}">GitHub at a glance</text>`;
+  return frame(w, 166, `${title}\n${body}`, "GitHub at a glance");
+}
+
+function languagesSvg(stats) {
+  const entries = Object.entries(stats.languages).sort((a, b) => b[1] - a[1]);
+  const total = entries.reduce((s, [, n]) => s + n, 0) || 1;
+  const w = 840;
+  const barW = w - 60;
+  let x = 30;
+  const segments = entries
+    .map(([lang, n]) => {
+      const width = (n / total) * barW;
+      const seg = `<rect x="${x.toFixed(1)}" y="58" width="${Math.max(width - 2, 1).toFixed(1)}" height="18" fill="${LANG_COLORS[lang] || "#8b949e"}" stroke="${INK}" stroke-width="1"/>`;
+      x += width;
+      return seg;
+    })
+    .join("\n");
+  const legend = entries
+    .map(([lang, n], i) => {
+      const lx = 30 + (i % 4) * (barW / 4);
+      const ly = 106 + Math.floor(i / 4) * 26;
+      return `<circle cx="${lx + 6}" cy="${ly - 5}" r="6" fill="${LANG_COLORS[lang] || "#8b949e"}" stroke="${INK}" stroke-width="1"/>
+<text x="${lx + 18}" y="${ly}" font-family="${FONT}" font-size="14" fill="${INK}">${escapeHtml(lang)} <tspan fill="${INK2}">${n} repo${n === 1 ? "" : "s"}</tspan></text>`;
+    })
+    .join("\n");
+  const h = 106 + Math.ceil(entries.length / 4) * 26 + 6;
+  const title = `<text x="30" y="40" font-family="${FONT}" font-size="15" font-weight="600" fill="${INK2}">Main language of each repository</text>`;
+  return frame(w, h, `${title}\n${segments}\n${legend}`, "Main language of each repository");
+}
+
+function contributionsSvg(stats) {
+  const days = stats.calendar.days;
+  const max = Math.max(...days.map((d) => d.contributionCount), 1);
+  const shade = (n) => (n === 0 ? "#ebe8e1" : ["#ffd9cf", "#ff9f87", SHU, "#a8301f"][Math.min(3, Math.floor((n / max) * 4 - 0.0001))]);
+  const cell = 13;
+  const gap = 3;
+  const x0 = 46;
+  const y0 = 64;
+  const first = new Date(`${days[0].date}T00:00:00Z`).getUTCDay();
+  let lastMonth = -1;
+  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const parts = [];
+  days.forEach((d, i) => {
+    const idx = i + first;
+    const week = Math.floor(idx / 7);
+    const dow = idx % 7;
+    const x = x0 + week * (cell + gap);
+    const y = y0 + dow * (cell + gap);
+    parts.push(`<rect x="${x}" y="${y}" width="${cell}" height="${cell}" rx="3" fill="${shade(d.contributionCount)}"><title>${d.contributionCount} on ${d.date}</title></rect>`);
+    const month = new Date(`${d.date}T00:00:00Z`).getUTCMonth();
+    if (dow === 0 && month !== lastMonth) {
+      lastMonth = month;
+      parts.push(`<text x="${x}" y="${y0 - 8}" font-family="${FONT}" font-size="11" fill="${INK2}">${monthNames[month]}</text>`);
+    }
+  });
+  ["Mon", "Wed", "Fri"].forEach((label, i) =>
+    parts.push(`<text x="12" y="${y0 + (1 + i * 2) * (cell + gap) + 10}" font-family="${FONT}" font-size="11" fill="${INK2}">${label}</text>`),
+  );
+  const weeks = Math.ceil((days.length + first) / 7);
+  const w = x0 + weeks * (cell + gap) + 24;
+  const s = streaks(days);
+  const title = `<text x="30" y="34" font-family="${FONT}" font-size="15" font-weight="600" fill="${INK2}">${stats.calendar.total} contributions in the last year · current streak ${s.current} day${s.current === 1 ? "" : "s"}</text>`;
+  return frame(w, y0 + 7 * (cell + gap) + 18, `${title}\n${parts.join("\n")}`, `${stats.calendar.total} contributions in the last year`);
+}
+
+async function statsBlock(data) {
+  const token = process.env.GITHUB_TOKEN;
+  const stats = process.env.STATS_FIXTURE
+    ? JSON.parse(await readFile(process.env.STATS_FIXTURE, "utf8"))
+    : await fetchStats(token);
+  const assets = new URL("assets/", ROOT);
+  await mkdir(assets, { recursive: true });
+  await writeFile(new URL("stats-overview.svg", assets), overviewSvg(data, stats));
+  await writeFile(new URL("stats-languages.svg", assets), languagesSvg(stats));
+  const lines = [
+    `## 📊 GitHub Stats`,
+    ``,
+    `<sub>Drawn from my GitHub data every day by this repository's workflow.</sub>`,
+    ``,
+    `<p align="center"><img src="./assets/stats-overview.svg" alt="GitHub at a glance" width="100%" /></p>`,
+    `<p align="center"><img src="./assets/stats-languages.svg" alt="Main language of each repository" width="100%" /></p>`,
+  ];
+  if (stats.calendar) {
+    await writeFile(new URL("stats-contributions.svg", assets), contributionsSvg(stats));
+    lines.push(`<p align="center"><img src="./assets/stats-contributions.svg" alt="Contributions in the last year" width="100%" /></p>`);
+  }
+  return lines.join("\n");
+}
+
+// ---------- main ----------
+
+async function main() {
+  const data = await loadJson(SOURCE);
+  const readme = await readFile(README, "utf8");
+  let next = replaceBlock(readme, "PROJECTS", projectsBlock(data));
+  next = replaceBlock(next, "STACK", stackBlock(data));
+  next = replaceBlock(next, "STATS", await statsBlock(data));
+  if (next === readme) {
+    console.log("README unchanged.");
+  } else {
+    await writeFile(README, next);
+    console.log(`README updated: ${data.projects.length} projects.`);
+  }
 }
 
 main().catch((err) => {
