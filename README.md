@@ -409,14 +409,39 @@ Analysed a readymade garments shop's costs, revenue and market position from pri
 
 ---
 
-<!-- STATS:START -->
 ## 📊 GitHub Stats
 
-<sub>Drawn from my GitHub data every day by this repository's workflow.</sub>
+<p align="center">
+  <img
+    src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=anubrata-de&theme=radical"
+    width="100%"
+  />
+</p>
 
-<p align="center"><img src="./assets/stats-overview.svg" alt="GitHub at a glance" width="100%" /></p>
-<p align="center"><img src="./assets/stats-languages.svg" alt="Main language of each repository" width="100%" /></p>
-<!-- STATS:END -->
+<p align="center">
+  <img
+    src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=anubrata-de&theme=radical"
+    width="49%"
+  />
+  <img
+    src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=anubrata-de&theme=radical"
+    width="49%"
+  />
+</p>
+
+<p align="center">
+  <img
+    src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=anubrata-de&theme=radical"
+    width="49%"
+  />
+</p>
+
+<p align="center">
+  <img
+    src="https://streak-stats.demolab.com/?user=anubrata-de&theme=radical&hide_border=true"
+    width="70%"
+  />
+</p>
 
 ---
 

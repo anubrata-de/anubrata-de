@@ -1,5 +1,5 @@
-# Rebuilds the projects, tech stack and stats sections of the profile README
-# from the portfolio's project data (synced from GitHub every morning) and live GitHub stats.
+# Rebuilds the projects and tech stack sections of the profile README from the
+# portfolio's project data, which is synced from GitHub every morning.
 name: Update profile README
 
 on:
@@ -27,19 +27,18 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Build projects, tech stack and stats
+      - name: Build the projects and tech stack sections
         run: node scripts/build-readme.mjs
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_OWNER: ${{ github.repository_owner }}
       - name: Commit if anything changed
         run: |
-          git add -A README.md assets
+          git add README.md
           if git diff --cached --quiet; then
             echo "No changes."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Update projects and stats from GitHub"
+          git commit -m "Update projects from GitHub"
           git push

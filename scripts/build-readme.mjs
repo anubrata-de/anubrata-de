@@ -4,18 +4,17 @@
  *
  *   PROJECTS  every project, from the same data the portfolio site uses
  *   STACK     tools and areas, collected from the projects' tags and languages
- *   STATS     cards drawn from live GitHub data and saved in assets/
  *
  * Project data: github-projects.json in the Portfolio repo, itself generated daily
  * from every public repo on this account (anubrata-de/Portfolio, scripts/sync-projects.mjs).
- * Stats: GitHub's REST API, using the workflow's GITHUB_TOKEN.
  *
  * Only the text between each START/END marker pair is replaced.
  *
+ * The GitHub Stats section below them is written by hand and left alone.
+ *
  * Usage: node scripts/build-readme.mjs [path-or-url-to-projects-json]
- *        STATS_FIXTURE=stats.json skips the API calls (for local testing).
  */
-import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 
 const OWNER = process.env.GITHUB_OWNER || "anubrata-de";
 const SOURCE =
@@ -172,130 +171,6 @@ ${rows.map(([g, cells]) => `<tr><td><b>${g}</b></td><td>${cells}</td></tr>`).joi
 </table>`;
 }
 
-// ---------- STATS ----------
-
-const PAPER = "#fbfaf7";
-const INK = "#1d1b22";
-const INK2 = "#4f4c58";
-const SHU = "#e2442f";
-const FONT = "-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif";
-const LANG_COLORS = {
-  Python: "#3572A5",
-  JavaScript: "#f1e05a",
-  "Jupyter Notebook": "#DA5B0B",
-  HTML: "#e34c26",
-  CSS: "#563d7c",
-  TypeScript: "#3178c6",
-  Vue: "#41b883",
-  Shell: "#89e051",
-};
-
-const frame = (w, h, body, title) => `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-label="${escapeHtml(title)}">
-<title>${escapeHtml(title)}</title>
-<defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#e4e9f0" stroke-width="1"/></pattern></defs>
-<rect x="1" y="1" width="${w - 2}" height="${h - 2}" rx="14" fill="${PAPER}"/>
-<rect x="1" y="1" width="${w - 2}" height="${h - 2}" rx="14" fill="url(#grid)"/>
-<rect x="1" y="1" width="${w - 2}" height="${h - 2}" rx="14" fill="none" stroke="${INK}" stroke-width="2"/>
-${body}
-</svg>
-`;
-
-async function gh(path, token) {
-  const res = await fetch(`https://api.github.com${path}`, {
-    headers: { Accept: "application/vnd.github+json", "User-Agent": `${OWNER}-readme`, ...(token ? { Authorization: `Bearer ${token}` } : {}) },
-  });
-  if (!res.ok) throw new Error(`GitHub ${res.status} for ${path}`);
-  return res.json();
-}
-
-async function fetchStats(token) {
-  const repos = [];
-  for (let page = 1; ; page++) {
-    const batch = await gh(`/users/${OWNER}/repos?type=owner&per_page=100&page=${page}`, token);
-    repos.push(...batch);
-    if (batch.length < 100) break;
-  }
-  const own = repos.filter((r) => !r.fork && !r.private);
-  const stats = {
-    repos: own.length,
-    stars: own.reduce((s, r) => s + r.stargazers_count, 0),
-    languages: {},
-  };
-  for (const r of own) if (r.language) stats.languages[r.language] = (stats.languages[r.language] || 0) + 1;
-
-  return stats;
-}
-
-function overviewSvg(data, stats) {
-  const items = [
-    [data.projects.length, "projects"],
-    [stats.repos, "public repositories"],
-    [Object.keys(stats.languages).length, "languages"],
-    [usage(data).filter(([n]) => TOOLS[n]).length, "tools and libraries"],
-  ];
-  const w = 840;
-  const col = (w - 60) / items.length;
-  const body = items
-    .map(
-      ([n, label, note], i) => `<g transform="translate(${30 + i * col} 0)">
-<text x="${col / 2}" y="92" text-anchor="middle" font-family="${FONT}" font-size="44" font-weight="700" fill="${i === 0 ? SHU : INK}">${n}</text>
-<text x="${col / 2}" y="122" text-anchor="middle" font-family="${FONT}" font-size="15" fill="${INK2}">${escapeHtml(label)}</text>${
-        note ? `\n<text x="${col / 2}" y="142" text-anchor="middle" font-family="${FONT}" font-size="13" fill="${SHU}">${escapeHtml(note)}</text>` : ""
-      }
-</g>`,
-    )
-    .join("\n");
-  const title = `<text x="30" y="40" font-family="${FONT}" font-size="15" font-weight="600" fill="${INK2}">GitHub at a glance</text>`;
-  return frame(w, 166, `${title}\n${body}`, "GitHub at a glance");
-}
-
-function languagesSvg(stats) {
-  const entries = Object.entries(stats.languages).sort((a, b) => b[1] - a[1]);
-  const total = entries.reduce((s, [, n]) => s + n, 0) || 1;
-  const w = 840;
-  const barW = w - 60;
-  let x = 30;
-  const segments = entries
-    .map(([lang, n]) => {
-      const width = (n / total) * barW;
-      const seg = `<rect x="${x.toFixed(1)}" y="58" width="${Math.max(width - 2, 1).toFixed(1)}" height="18" fill="${LANG_COLORS[lang] || "#8b949e"}" stroke="${INK}" stroke-width="1"/>`;
-      x += width;
-      return seg;
-    })
-    .join("\n");
-  const legend = entries
-    .map(([lang, n], i) => {
-      const lx = 30 + (i % 4) * (barW / 4);
-      const ly = 106 + Math.floor(i / 4) * 26;
-      return `<circle cx="${lx + 6}" cy="${ly - 5}" r="6" fill="${LANG_COLORS[lang] || "#8b949e"}" stroke="${INK}" stroke-width="1"/>
-<text x="${lx + 18}" y="${ly}" font-family="${FONT}" font-size="14" fill="${INK}">${escapeHtml(lang)} <tspan fill="${INK2}">${n} repo${n === 1 ? "" : "s"}</tspan></text>`;
-    })
-    .join("\n");
-  const h = 106 + Math.ceil(entries.length / 4) * 26 + 6;
-  const title = `<text x="30" y="40" font-family="${FONT}" font-size="15" font-weight="600" fill="${INK2}">Main language of each repository</text>`;
-  return frame(w, h, `${title}\n${segments}\n${legend}`, "Main language of each repository");
-}
-
-async function statsBlock(data) {
-  const token = process.env.GITHUB_TOKEN;
-  const stats = process.env.STATS_FIXTURE
-    ? JSON.parse(await readFile(process.env.STATS_FIXTURE, "utf8"))
-    : await fetchStats(token);
-  const assets = new URL("assets/", ROOT);
-  await mkdir(assets, { recursive: true });
-  await writeFile(new URL("stats-overview.svg", assets), overviewSvg(data, stats));
-  await writeFile(new URL("stats-languages.svg", assets), languagesSvg(stats));
-  const lines = [
-    `## 📊 GitHub Stats`,
-    ``,
-    `<sub>Drawn from my GitHub data every day by this repository's workflow.</sub>`,
-    ``,
-    `<p align="center"><img src="./assets/stats-overview.svg" alt="GitHub at a glance" width="100%" /></p>`,
-    `<p align="center"><img src="./assets/stats-languages.svg" alt="Main language of each repository" width="100%" /></p>`,
-  ];
-  return lines.join("\n");
-}
-
 // ---------- main ----------
 
 async function main() {
@@ -303,7 +178,6 @@ async function main() {
   const readme = await readFile(README, "utf8");
   let next = replaceBlock(readme, "PROJECTS", projectsBlock(data));
   next = replaceBlock(next, "STACK", stackBlock(data));
-  next = replaceBlock(next, "STATS", await statsBlock(data));
   if (next === readme) {
     console.log("README unchanged.");
   } else {
