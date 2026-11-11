@@ -142,13 +142,18 @@ function canonical(tag) {
   return Object.keys(TOOLS).find((t) => t.toLowerCase() === lower) || tag;
 }
 
-function stackBlock(data) {
+/** Every tag and language across the projects, with how many projects use it, most used first. */
+function usage(data) {
   const counts = new Map();
   for (const p of data.projects) {
     const names = new Set([...p.tags, p.language].filter(Boolean).map(canonical));
     for (const n of names) counts.set(n, (counts.get(n) || 0) + 1);
   }
-  const byUse = [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+  return [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+}
+
+function stackBlock(data) {
+  const byUse = usage(data);
   const plural = (n) => `${n} project${n === 1 ? "" : "s"}`;
 
   const groups = GROUPS.map((g) => {
@@ -263,14 +268,11 @@ function streaks(days) {
 }
 
 function overviewSvg(data, stats) {
-  const s = stats.calendar ? streaks(stats.calendar.days) : null;
   const items = [
     [data.projects.length, "projects"],
     [stats.repos, "public repositories"],
     stats.calendar ? [stats.calendar.total, "contributions in the last year"] : [stats.stars, "stars"],
-    s
-      ? [s.longest, "day longest streak", `current streak: ${s.current} day${s.current === 1 ? "" : "s"}`]
-      : [Object.keys(stats.languages).length, "languages"],
+    [usage(data).filter(([n]) => TOOLS[n]).length, "tools and libraries"],
   ];
   const w = 840;
   const col = (w - 60) / items.length;
