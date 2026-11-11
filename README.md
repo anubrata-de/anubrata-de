@@ -27,7 +27,10 @@
 
 ---
 
+<!-- PROJECTS:START -->
 ## 🧩 Projects
+
+<sub>14 projects, updated automatically from my repositories. Details for each are on <a href="https://anubrata.vercel.app/projects">my portfolio</a>.</sub>
 
 ### 🤖 LLM agents and apps
 
@@ -36,39 +39,41 @@
 
 <td width="50%" valign="top">
 
-<h3>Data Analyst Agent</h3>
+<h3>Your Text, Your Style</h3>
 
-An API that takes a question in plain English plus whatever data comes with it, finds and scrapes the sources it needs, works out the analysis and returns the answers as JSON.
+<em>Auto-Generate a Presentation</em>
+
+Turns bulk text or Markdown into a PowerPoint deck in the style of any uploaded template, using the visitor's own LLM API key, which is never stored.
 
 <p>
-<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
-<img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" />
-<img src="https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white" />
-<img src="https://img.shields.io/badge/DuckDB-FFF000?style=flat-square&logo=duckdb&logoColor=black" />
-<img src="https://img.shields.io/badge/LLM%20APIs-7C3AED?style=flat-square" />
+<img src="https://img.shields.io/badge/Python-7C3AED?style=flat-square" alt="Python" />
+<img src="https://img.shields.io/badge/FastAPI-7C3AED?style=flat-square" alt="FastAPI" />
+<img src="https://img.shields.io/badge/python--pptx-7C3AED?style=flat-square" alt="python-pptx" />
+<img src="https://img.shields.io/badge/LLM%20APIs-7C3AED?style=flat-square" alt="LLM APIs" />
 </p>
 
-<a href="https://github.com/anubrata-de/tds_p2">
-<img src="https://img.shields.io/badge/View%20Repository-7C3AED?style=for-the-badge&logo=github&logoColor=white" />
-</a>
+<a href="https://github.com/anubrata-de/Promt2PPT"><img src="https://img.shields.io/badge/Repository-7C3AED?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
+<a href="https://anubrata.vercel.app/projects/prompt2ppt"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
 
 </td>
 
 <td width="50%" valign="top">
 
-<h3>Browser LLM Agent</h3>
+<h3>LLM Agent Proof-of-Concept</h3>
 
-A chat agent that runs entirely in the browser and can search the web, consult a second model and run sandboxed JavaScript on its way to an answer.
+<em>Browser-Based Multi-Tool Reasoning</em>
+
+A minimal browser-based agent that reasons in a loop and calls tools as the model decides: Google search snippets, an AI Pipe proxy and sandboxed JavaScript, streaming its output to the page.
 
 <p>
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" />
-<img src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat-square&logo=bootstrap&logoColor=white" />
-<img src="https://img.shields.io/badge/LLM%20APIs-7C3AED?style=flat-square" />
+<img src="https://img.shields.io/badge/JavaScript-7C3AED?style=flat-square" alt="JavaScript" />
+<img src="https://img.shields.io/badge/Bootstrap-7C3AED?style=flat-square" alt="Bootstrap" />
+<img src="https://img.shields.io/badge/LLM%20APIs-7C3AED?style=flat-square" alt="LLM APIs" />
+<img src="https://img.shields.io/badge/Tool%20calling-7C3AED?style=flat-square" alt="Tool calling" />
 </p>
 
-<a href="https://github.com/anubrata-de/LLM_Agent">
-<img src="https://img.shields.io/badge/View%20Repository-4F46E5?style=for-the-badge&logo=github&logoColor=white" />
-</a>
+<a href="https://github.com/anubrata-de/LLM_Agent"><img src="https://img.shields.io/badge/Repository-7C3AED?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
+<a href="https://anubrata.vercel.app/projects/browser-llm-agent"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
 
 </td>
 
@@ -78,39 +83,42 @@ A chat agent that runs entirely in the browser and can search the web, consult a
 
 <td width="50%" valign="top">
 
-<h3>TDS Virtual TA</h3>
+<h3>Data Analyst Agent</h3>
 
-Answers student questions for IIT Madras's Tools in Data Science course from the course notes and the discussion forum, and links the posts it drew on.
+<em>Automated Data Analysis &amp; Visualization API</em>
+
+Takes a task in plain English with optional CSV, JSON or image attachments, then sources, analyses and visualises the data itself and returns the answer as JSON within strict time limits.
 
 <p>
-<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
-<img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" />
-<img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white" />
-<img src="https://img.shields.io/badge/Embeddings-0891B2?style=flat-square" />
+<img src="https://img.shields.io/badge/Python-7C3AED?style=flat-square" alt="Python" />
+<img src="https://img.shields.io/badge/FastAPI-7C3AED?style=flat-square" alt="FastAPI" />
+<img src="https://img.shields.io/badge/pandas-7C3AED?style=flat-square" alt="pandas" />
+<img src="https://img.shields.io/badge/DuckDB-7C3AED?style=flat-square" alt="DuckDB" />
+<img src="https://img.shields.io/badge/LLM%20APIs-7C3AED?style=flat-square" alt="LLM APIs" />
 </p>
 
-<a href="https://github.com/anubrata-de/TDS-VIRTUAL-TA">
-<img src="https://img.shields.io/badge/View%20Repository-DB2777?style=for-the-badge&logo=github&logoColor=white" />
-</a>
+<a href="https://github.com/anubrata-de/tds_p2"><img src="https://img.shields.io/badge/Repository-7C3AED?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
+<a href="https://anubrata.vercel.app/projects/data-analyst-agent"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
 
 </td>
 
 <td width="50%" valign="top">
 
-<h3>Prompt2PPT</h3>
+<h3>Virtual Teaching Assistant</h3>
 
-Turns long text or Markdown into a PowerPoint deck that keeps the fonts, colours and layouts of a template you upload, using your own LLM API key.
+<em>Tools in Data Science (TDS), IIT Madras</em>
+
+Answers student questions for the TDS course from scraped course content and Discourse forum posts, returning context-aware answers with references as JSON in under 30 seconds.
 
 <p>
-<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
-<img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" />
-<img src="https://img.shields.io/badge/python--pptx-F97316?style=flat-square" />
-<img src="https://img.shields.io/badge/LLM%20APIs-7C3AED?style=flat-square" />
+<img src="https://img.shields.io/badge/Python-7C3AED?style=flat-square" alt="Python" />
+<img src="https://img.shields.io/badge/FastAPI-7C3AED?style=flat-square" alt="FastAPI" />
+<img src="https://img.shields.io/badge/Embeddings-7C3AED?style=flat-square" alt="Embeddings" />
+<img src="https://img.shields.io/badge/Web%20scraping-7C3AED?style=flat-square" alt="Web scraping" />
 </p>
 
-<a href="https://github.com/anubrata-de/Promt2PPT">
-<img src="https://img.shields.io/badge/View%20Repository-0891B2?style=for-the-badge&logo=github&logoColor=white" />
-</a>
+<a href="https://github.com/anubrata-de/TDS-VIRTUAL-TA"><img src="https://img.shields.io/badge/Repository-7C3AED?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
+<a href="https://anubrata.vercel.app/projects/tds-virtual-ta"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
 
 </td>
 
@@ -124,40 +132,43 @@ Turns long text or Markdown into a PowerPoint deck that keeps the fonts, colours
 
 <td width="50%" valign="top">
 
-<h3>ParkEase</h3>
+<h3>Placement Portal Application (PPA)</h3>
 
-A vehicle parking app where drivers book spots, slots are allocated automatically, and scheduled jobs send reminders and monthly reports.
+<em>Role-Based Recruitment Management System</em>
+
+Lets admins, companies and students run campus recruitment: placement drives, applications, eligibility filtering, automated reminders, monthly reports and CSV export.
 
 <p>
-<img src="https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white" />
-<img src="https://img.shields.io/badge/Vue.js-42B883?style=flat-square&logo=vuedotjs&logoColor=white" />
-<img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white" />
-<img src="https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white" />
-<img src="https://img.shields.io/badge/Celery-37814A?style=flat-square&logo=celery&logoColor=white" />
+<img src="https://img.shields.io/badge/Flask-059669?style=flat-square" alt="Flask" />
+<img src="https://img.shields.io/badge/Vue.js-059669?style=flat-square" alt="Vue.js" />
+<img src="https://img.shields.io/badge/SQLite-059669?style=flat-square" alt="SQLite" />
+<img src="https://img.shields.io/badge/Redis-059669?style=flat-square" alt="Redis" />
+<img src="https://img.shields.io/badge/Celery-059669?style=flat-square" alt="Celery" />
 </p>
 
-<a href="https://github.com/anubrata-de/ParkEase">
-<img src="https://img.shields.io/badge/View%20Repository-059669?style=for-the-badge&logo=github&logoColor=white" />
-</a>
+<a href="https://github.com/anubrata-de/placement_portal"><img src="https://img.shields.io/badge/Repository-059669?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
+<a href="https://anubrata.vercel.app/projects/placement-portal"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
 
 </td>
 
 <td width="50%" valign="top">
 
-<h3>Placement Portal</h3>
+<h3>ParkEase</h3>
 
-Runs campus placements for three roles: admins approve companies and drives, companies shortlist candidates, and students apply to drives they're eligible for.
+<em>Smart Vehicle Parking Management System</em>
+
+Role-based parking platform: admins manage lots, spots and users, and customers book and vacate spots in real time, with Redis caching and Celery jobs for reminders and monthly reports.
 
 <p>
-<img src="https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white" />
-<img src="https://img.shields.io/badge/Vue.js-42B883?style=flat-square&logo=vuedotjs&logoColor=white" />
-<img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white" />
-<img src="https://img.shields.io/badge/Celery-37814A?style=flat-square&logo=celery&logoColor=white" />
+<img src="https://img.shields.io/badge/Flask-059669?style=flat-square" alt="Flask" />
+<img src="https://img.shields.io/badge/Vue.js-059669?style=flat-square" alt="Vue.js" />
+<img src="https://img.shields.io/badge/SQLite-059669?style=flat-square" alt="SQLite" />
+<img src="https://img.shields.io/badge/Redis-059669?style=flat-square" alt="Redis" />
+<img src="https://img.shields.io/badge/Celery-059669?style=flat-square" alt="Celery" />
 </p>
 
-<a href="https://github.com/anubrata-de/placement_portal">
-<img src="https://img.shields.io/badge/View%20Repository-2563EB?style=for-the-badge&logo=github&logoColor=white" />
-</a>
+<a href="https://github.com/anubrata-de/ParkEase"><img src="https://img.shields.io/badge/Repository-059669?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
+<a href="https://anubrata.vercel.app/projects/parkease"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
 
 </td>
 
@@ -169,17 +180,19 @@ Runs campus placements for three roles: admins approve companies and drives, com
 
 <h3>Quiz Master V1</h3>
 
-Exam practice across several courses: admins build subjects, chapters and timed quizzes, and students take them against a live countdown.
+<em>Multi-User Exam Preparation Platform</em>
+
+Admins manage subjects, chapters and quizzes; students take timed quizzes with a live countdown and auto-submit, then track their results.
 
 <p>
-<img src="https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white" />
-<img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white" />
-<img src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat-square&logo=bootstrap&logoColor=white" />
+<img src="https://img.shields.io/badge/Flask-059669?style=flat-square" alt="Flask" />
+<img src="https://img.shields.io/badge/Jinja2-059669?style=flat-square" alt="Jinja2" />
+<img src="https://img.shields.io/badge/SQLite-059669?style=flat-square" alt="SQLite" />
+<img src="https://img.shields.io/badge/Bootstrap-059669?style=flat-square" alt="Bootstrap" />
 </p>
 
-<a href="https://github.com/anubrata-de/Quiz-Master-V1">
-<img src="https://img.shields.io/badge/View%20Repository-9333EA?style=for-the-badge&logo=github&logoColor=white" />
-</a>
+<a href="https://github.com/anubrata-de/Quiz-Master-V1"><img src="https://img.shields.io/badge/Repository-059669?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
+<a href="https://anubrata.vercel.app/projects/quiz-master-v1"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
 
 </td>
 
@@ -188,133 +201,167 @@ Exam practice across several courses: admins build subjects, chapters and timed 
 </tr>
 </table>
 
-### 📊 Analysis and deep learning
+### 🧠 Machine learning
 
 <table>
 <tr>
 
 <td width="50%" valign="top">
 
-<h3>Portcast Take-Home</h3>
+<h3>Cinema Audience Forecasting Challenge</h3>
 
-Data analyst case study: traced a container's 7-day delay to a missed connection, estimated what inaccurate ETAs cost a year (about $2.3M), and reviewed an AI-written integration plan.
+<em>Time Series Prediction</em>
+
+Forecasts daily audience counts across theatres from online and point-of-sale booking data, theatre metadata and calendar effects such as weekends and holidays.
 
 <p>
-<img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white" />
-<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
-<img src="https://img.shields.io/badge/Root%20Cause%20Analysis-DC2626?style=flat-square" />
+<img src="https://img.shields.io/badge/Python-2563EB?style=flat-square" alt="Python" />
+<img src="https://img.shields.io/badge/Time%20series-2563EB?style=flat-square" alt="Time series" />
+<img src="https://img.shields.io/badge/Forecasting-2563EB?style=flat-square" alt="Forecasting" />
 </p>
 
-<a href="https://github.com/anubrata-de/portcast-data-analyst-take-home">
-<img src="https://img.shields.io/badge/View%20Repository-DC2626?style=for-the-badge&logo=github&logoColor=white" />
-</a>
+<a href="https://github.com/anubrata-de/cinema-audience-forecasting"><img src="https://img.shields.io/badge/Repository-2563EB?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
+<a href="https://anubrata.vercel.app/projects/cinema-audience-forecasting"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
 
 </td>
 
 <td width="50%" valign="top">
 
-<h3>Messy Mashup (DLGenAI)</h3>
+<h3>Hotel Booking Cancellation Prediction</h3>
 
-Classifies the genre of noisy music mashups built from mixed instrument stems, using mel spectrograms with a CNN, a fine-tuned EfficientNet-B2 and a CRNN. Scored on Macro F1.
+<em>Binary classification</em>
+
+Predicts whether a hotel booking will be cancelled from customer, booking and stay features such as lead time, room type and booking history.
 
 <p>
-<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
-<img src="https://img.shields.io/badge/Deep%20Learning-EA580C?style=flat-square" />
-<img src="https://img.shields.io/badge/Audio-0D9488?style=flat-square" />
+<img src="https://img.shields.io/badge/Python-2563EB?style=flat-square" alt="Python" />
+<img src="https://img.shields.io/badge/Machine%20learning-2563EB?style=flat-square" alt="Machine learning" />
+<img src="https://img.shields.io/badge/Classification-2563EB?style=flat-square" alt="Classification" />
 </p>
 
-<a href="https://github.com/anubrata-de/DL-23f3001069-t12026">
-<img src="https://img.shields.io/badge/View%20Repository-EA580C?style=for-the-badge&logo=github&logoColor=white" />
-</a>
+<a href="https://github.com/anubrata-de/hotel-booking-cancellation"><img src="https://img.shields.io/badge/Repository-2563EB?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
+<a href="https://anubrata.vercel.app/projects/hotel-booking-cancellation"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
 
 </td>
 
 </tr>
+
+<tr>
+
+<td width="50%" valign="top">
+
+<h3>House Price Prediction</h3>
+
+<em>Regression</em>
+
+Predicts house prices from mixed categorical and numerical data for a Kaggle competition, scored on R².
+
+<p>
+<img src="https://img.shields.io/badge/Python-2563EB?style=flat-square" alt="Python" />
+<img src="https://img.shields.io/badge/Machine%20learning-2563EB?style=flat-square" alt="Machine learning" />
+<img src="https://img.shields.io/badge/Regression-2563EB?style=flat-square" alt="Regression" />
+</p>
+
+<a href="https://github.com/anubrata-de/house-price-prediction"><img src="https://img.shields.io/badge/Repository-2563EB?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
+<a href="https://anubrata.vercel.app/projects/house-price-prediction"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
+
+</td>
+
+<td width="50%" valign="top">
+
+<h3>Movie Review Sentiment Prediction</h3>
+
+<em>Multiclass classification (NLP)</em>
+
+Classifies movie reviews as negative, neutral or positive from review phrases combined with structured features.
+
+<p>
+<img src="https://img.shields.io/badge/Python-2563EB?style=flat-square" alt="Python" />
+<img src="https://img.shields.io/badge/NLP-2563EB?style=flat-square" alt="NLP" />
+<img src="https://img.shields.io/badge/Classification-2563EB?style=flat-square" alt="Classification" />
+</p>
+
+<a href="https://github.com/anubrata-de/movie-review-sentiment"><img src="https://img.shields.io/badge/Repository-2563EB?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
+<a href="https://anubrata.vercel.app/projects/movie-review-sentiment"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="50%" valign="top">
+
+<h3>Messy Mashup</h3>
+
+<em>Noisy Music Genre Classification (DLGenAI)</em>
+
+Classifies music genres from noisy mashups of instrument stems taken from different songs, handling tempo changes, cross-song mixing and background noise. Evaluated on Macro F1.
+
+<p>
+<img src="https://img.shields.io/badge/Python-2563EB?style=flat-square" alt="Python" />
+<img src="https://img.shields.io/badge/Deep%20learning-2563EB?style=flat-square" alt="Deep learning" />
+<img src="https://img.shields.io/badge/Audio-2563EB?style=flat-square" alt="Audio" />
+<img src="https://img.shields.io/badge/CNN-2563EB?style=flat-square" alt="CNN" />
+</p>
+
+<a href="https://github.com/anubrata-de/DL-23f3001069-t12026"><img src="https://img.shields.io/badge/Repository-2563EB?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
+<a href="https://anubrata.vercel.app/projects/messy-mashup"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
+
+</td>
+
+<td width="50%" valign="top"></td>
+
+</tr>
 </table>
 
----
-
-## 🧠 Machine Learning and Business
+### 📊 Business and data analysis
 
 <table>
 <tr>
 
-<td width="20%" align="center" valign="top">
+<td width="50%" valign="top">
 
-**Hotel Booking Cancellation**
+<h3>Portcast Data Analyst Intern</h3>
 
-<br>
+<em>Take-Home Case Study</em>
 
-<img src="https://img.shields.io/badge/Classification-2563EB?style=flat-square" />
+Traced a container's 7-day delay to a missed connection at Singapore, estimated what inaccurate ETAs cost a manufacturer each year, and reviewed an AI-written plan to integrate 50+ tracking feeds.
 
-<br>
+<p>
+<img src="https://img.shields.io/badge/SQL-DC2626?style=flat-square" alt="SQL" />
+<img src="https://img.shields.io/badge/Python-DC2626?style=flat-square" alt="Python" />
+<img src="https://img.shields.io/badge/Root--cause%20analysis-DC2626?style=flat-square" alt="Root-cause analysis" />
+<img src="https://img.shields.io/badge/Estimation-DC2626?style=flat-square" alt="Estimation" />
+</p>
 
-<sub>Will this booking be cancelled?</sub>
-
-</td>
-
-
-<td width="20%" align="center" valign="top">
-
-**House Price Prediction**
-
-<br>
-
-<img src="https://img.shields.io/badge/Regression-059669?style=flat-square" />
-
-<br>
-
-<sub>What will this house sell for?</sub>
+<a href="https://github.com/anubrata-de/portcast-data-analyst-take-home"><img src="https://img.shields.io/badge/Repository-DC2626?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
+<a href="https://anubrata.vercel.app/projects/portcast-take-home"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
 
 </td>
 
+<td width="50%" valign="top">
 
-<td width="20%" align="center" valign="top">
+<h3>Competitive Strategy and Financial Optimization for Clothing Business</h3>
 
-**Movie Review Sentiment**
+<em>BDM Capstone Project</em>
 
-<br>
+Analysed a readymade garments shop's costs, revenue and market position from primary data, and proposed pricing, inventory and customer-retention strategies to improve working capital and profit.
 
-<img src="https://img.shields.io/badge/Multiclass-9333EA?style=flat-square" />
+<p>
+<img src="https://img.shields.io/badge/Business%20analysis-DC2626?style=flat-square" alt="Business analysis" />
+<img src="https://img.shields.io/badge/Business%20strategy-DC2626?style=flat-square" alt="Business strategy" />
+<img src="https://img.shields.io/badge/Financial%20analysis-DC2626?style=flat-square" alt="Financial analysis" />
+</p>
 
-<br>
-
-<sub>Negative, neutral or positive?</sub>
-
-</td>
-
-
-<td width="20%" align="center" valign="top">
-
-**Cinema Audience Forecasting**
-
-<br>
-
-<img src="https://img.shields.io/badge/Time%20Series-F59E0B?style=flat-square" />
-
-<br>
-
-<sub>How many people will come each day?</sub>
-
-</td>
-
-
-<td width="20%" align="center" valign="top">
-
-**Clothing Shop Strategy**
-
-<br>
-
-<img src="https://img.shields.io/badge/Business%20Analysis-DB2777?style=flat-square" />
-
-<br>
-
-<sub>BDM capstone: fixing working capital and growth for a garments shop</sub>
+<a href="https://github.com/anubrata-de/bdm-capstone-clothing-business"><img src="https://img.shields.io/badge/Repository-DC2626?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
+<a href="https://anubrata.vercel.app/projects/bdm-capstone"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
 
 </td>
 
 </tr>
 </table>
+<!-- PROJECTS:END -->
 
 ---
 
