@@ -4,7 +4,10 @@ name: Update profile README
 
 on:
   schedule:
-    - cron: "47 1 * * *" # every day, 07:17 in India, half an hour after the portfolio sync
+    # twice a day, half an hour after each portfolio sync (07:17 and 19:17 in India);
+    # GitHub can start scheduled runs late, and the second run catches anything the first missed
+    - cron: "47 1 * * *"
+    - cron: "47 13 * * *"
   workflow_dispatch: # "Run workflow" button in the Actions tab
   push:
     paths:

@@ -2,7 +2,8 @@
 /**
  * Rebuilds the generated parts of README.md every day:
  *
- *   PROJECTS  every project, from the same data the portfolio site uses
+ *   PROJECTS  every project, from the same data the portfolio site uses; projects
+ *             added in the last 30 days carry a small red "new" badge
  *   STACK     tools and areas, collected from the projects' tags and languages
  *
  * Project data: github-projects.json in the Portfolio repo, itself generated daily
@@ -64,7 +65,7 @@ const button = (label, href, color, logo) =>
 function card(p, color) {
   return `<td width="50%" valign="top">
 
-<h3>${escapeHtml(p.title)}</h3>
+<h3>${escapeHtml(p.title)}${p.isNew ? ` <img src="https://img.shields.io/badge/new-E2442F?style=flat-square" alt="new" />` : ""}</h3>
 ${p.tagline ? `\n<em>${escapeHtml(p.tagline)}</em>\n` : ""}
 ${escapeHtml(p.summary)}
 
@@ -129,8 +130,60 @@ const TOOLS = {
   Redis: ["Back end and front end", "DC382D", "redis"],
   Celery: ["Back end and front end", "37814A", "celery"],
   "python-pptx": ["Back end and front end", "B7472A"],
+  // more languages a new repo might be written in
+  TypeScript: ["Languages", "3178C6", "typescript"],
+  Java: ["Languages", "B07219"],
+  "C++": ["Languages", "00599C", "cplusplus"],
+  C: ["Languages", "A8B9CC", "c", "black"],
+  Go: ["Languages", "00ADD8", "go"],
+  R: ["Languages", "276DC3", "r"],
+  Rust: ["Languages", "000000", "rust"],
+  Shell: ["Languages", "4EAA25", "gnubash"],
+  // libraries the portfolio sync reads from a new repo's dependency files
+  NumPy: ["Data and ML", "013243", "numpy"],
+  SciPy: ["Data and ML", "8CAAE6", "scipy", "black"],
+  Matplotlib: ["Data and ML", "11557C"],
+  seaborn: ["Data and ML", "4C72B0"],
+  Plotly: ["Data and ML", "3F4F75", "plotly"],
+  Polars: ["Data and ML", "CD792C", "polars"],
+  statsmodels: ["Data and ML", "4051B5"],
+  NLTK: ["Data and ML", "154F5B"],
+  spaCy: ["Data and ML", "09A3D5", "spacy"],
+  OpenCV: ["Data and ML", "5C3EE8", "opencv"],
+  TensorFlow: ["Data and ML", "FF6F00", "tensorflow"],
+  Keras: ["Data and ML", "D00000", "keras"],
+  Drain3: ["Data and ML", "2F6F8F"],
+  "Hugging Face Transformers": ["AI and LLMs", "FFD21E", "huggingface", "black"],
+  LangChain: ["AI and LLMs", "1C3C3C", "langchain"],
+  "OpenAI API": ["AI and LLMs", "412991", "openai"],
+  "Gemini API": ["AI and LLMs", "8E75B2", "googlegemini"],
+  "Claude API": ["AI and LLMs", "D97757", "claude"],
+  Django: ["Back end and front end", "092E20", "django"],
+  Streamlit: ["Back end and front end", "FF4B4B", "streamlit"],
+  SQLAlchemy: ["Back end and front end", "D71F00", "sqlalchemy"],
+  BeautifulSoup: ["Back end and front end", "3B7EA1"],
+  Playwright: ["Back end and front end", "2EAD33"],
+  Selenium: ["Back end and front end", "43B02A", "selenium"],
+  React: ["Back end and front end", "61DAFB", "react", "black"],
+  "Next.js": ["Back end and front end", "000000", "nextdotjs"],
+  Express: ["Back end and front end", "000000", "express"],
+  "Chart.js": ["Back end and front end", "FF6384", "chartdotjs"],
+  "Tailwind CSS": ["Back end and front end", "06B6D4", "tailwindcss"],
+  HTML: ["Back end and front end", "E34F26", "html5"],
+  CSS: ["Back end and front end", "663399", "css"],
 };
-const ALIASES = { "jupyter notebook": "Jupyter", "vue": "Vue.js", "vue 3": "Vue.js", "sklearn": "scikit-learn", "torch": "PyTorch" };
+const ALIASES = {
+  "jupyter notebook": "Jupyter",
+  vue: "Vue.js",
+  "vue 3": "Vue.js",
+  sklearn: "scikit-learn",
+  torch: "PyTorch",
+  numpy: "NumPy",
+  "next": "Next.js",
+  nextjs: "Next.js",
+  tailwind: "Tailwind CSS",
+  transformers: "Hugging Face Transformers",
+};
 const GROUPS = ["Languages", "Data and ML", "AI and LLMs", "Back end and front end"];
 
 function canonical(tag) {
