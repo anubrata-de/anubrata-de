@@ -30,7 +30,7 @@
 <!-- PROJECTS:START -->
 ## 🧩 Projects
 
-<sub>15 projects, updated automatically from my repositories. Details for each are on <a href="https://anubrata.vercel.app/projects">my portfolio</a>.</sub>
+<sub>16 projects, updated automatically from my repositories. Details for each are on <a href="https://anubrata.vercel.app/projects">my portfolio</a>.</sub>
 
 ### 🤖 LLM agents and apps
 
@@ -212,6 +212,26 @@ Role-based parking platform: admins manage lots, spots and users, and customers 
 
 <td width="50%" valign="top">
 
+<h3>Log parsing on Loghub BGL and HDFS <img src="https://img.shields.io/badge/new-E2442F?style=flat-square" alt="new" /></h3>
+
+This repository parses the BGL and HDFS logs from Loghub into event templates, measures how accurate the parsing is, and writes the event sequences that the anomaly detection stage will use. This stage works on the labelled 2k samples; larger and more varied datasets come later.
+
+<p>
+<img src="https://img.shields.io/badge/Python-2563EB?style=flat-square" alt="Python" />
+<img src="https://img.shields.io/badge/scikit--learn-2563EB?style=flat-square" alt="scikit-learn" />
+<img src="https://img.shields.io/badge/Drain3-2563EB?style=flat-square" alt="Drain3" />
+<img src="https://img.shields.io/badge/pandas-2563EB?style=flat-square" alt="pandas" />
+<img src="https://img.shields.io/badge/NumPy-2563EB?style=flat-square" alt="NumPy" />
+<img src="https://img.shields.io/badge/SciPy-2563EB?style=flat-square" alt="SciPy" />
+</p>
+
+<a href="https://github.com/anubrata-de/log-parsing-bgl-hdfs"><img src="https://img.shields.io/badge/Repository-2563EB?style=for-the-badge&logo=github&logoColor=white" alt="Repository" /></a>
+<a href="https://anubrata.vercel.app/projects/log-parsing-bgl-hdfs"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
+
+</td>
+
+<td width="50%" valign="top">
+
 <h3>Chest X-Ray Disease Classification</h3>
 
 <em>DLGenAI NPPE 1 (Kaggle)</em>
@@ -229,6 +249,10 @@ Classifies chest X-rays by finding despite heavy class imbalance, comparing Dens
 <a href="https://anubrata.vercel.app/projects/chest-xray-classification"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
 
 </td>
+
+</tr>
+
+<tr>
 
 <td width="50%" valign="top">
 
@@ -250,10 +274,6 @@ Forecasts daily audience counts across theatres from booking, theatre and calend
 
 </td>
 
-</tr>
-
-<tr>
-
 <td width="50%" valign="top">
 
 <h3>Movie Review Sentiment Prediction</h3>
@@ -273,6 +293,10 @@ Classifies movie reviews as negative, neutral or positive with TF-IDF features a
 <a href="https://anubrata.vercel.app/projects/movie-review-sentiment"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
 
 </td>
+
+</tr>
+
+<tr>
 
 <td width="50%" valign="top">
 
@@ -295,10 +319,6 @@ Predicts house prices from mixed categorical and numerical data for a Kaggle com
 
 </td>
 
-</tr>
-
-<tr>
-
 <td width="50%" valign="top">
 
 <h3>Hotel Booking Cancellation Prediction</h3>
@@ -320,6 +340,10 @@ Predicts whether a hotel booking will be cancelled from customer, booking and st
 
 </td>
 
+</tr>
+
+<tr>
+
 <td width="50%" valign="top">
 
 <h3>Messy Mashup</h3>
@@ -339,6 +363,8 @@ Classifies music genres from noisy mashups of instrument stems taken from differ
 <a href="https://anubrata.vercel.app/projects/messy-mashup"><img src="https://img.shields.io/badge/Details-1D1B22?style=for-the-badge" alt="Details" /></a>
 
 </td>
+
+<td width="50%" valign="top"></td>
 
 </tr>
 </table>
@@ -399,8 +425,8 @@ Analysed a readymade garments shop's costs, revenue and market position from pri
 <sub>Collected automatically from my projects, most used first.</sub>
 
 <table>
-<tr><td><b>Languages</b></td><td><img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python" title="Used in 11 projects" /> <img src="https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white" alt="Jupyter" title="Used in 5 projects" /> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript" title="Used in 3 projects" /> <img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white" alt="SQL" title="Used in 1 project" /></td></tr>
-<tr><td><b>Data and ML</b></td><td><img src="https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white" alt="scikit-learn" title="Used in 4 projects" /> <img src="https://img.shields.io/badge/XGBoost-189FDD?style=flat-square" alt="XGBoost" title="Used in 3 projects" /> <img src="https://img.shields.io/badge/LightGBM-02569B?style=flat-square" alt="LightGBM" title="Used in 2 projects" /> <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white" alt="PyTorch" title="Used in 2 projects" /> <img src="https://img.shields.io/badge/DuckDB-FFF000?style=flat-square&logo=duckdb&logoColor=black" alt="DuckDB" title="Used in 1 project" /> <img src="https://img.shields.io/badge/librosa-5A3E8E?style=flat-square" alt="librosa" title="Used in 1 project" /> <img src="https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white" alt="pandas" title="Used in 1 project" /></td></tr>
+<tr><td><b>Languages</b></td><td><img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python" title="Used in 12 projects" /> <img src="https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white" alt="Jupyter" title="Used in 5 projects" /> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript" title="Used in 3 projects" /> <img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white" alt="SQL" title="Used in 1 project" /></td></tr>
+<tr><td><b>Data and ML</b></td><td><img src="https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white" alt="scikit-learn" title="Used in 5 projects" /> <img src="https://img.shields.io/badge/XGBoost-189FDD?style=flat-square" alt="XGBoost" title="Used in 3 projects" /> <img src="https://img.shields.io/badge/LightGBM-02569B?style=flat-square" alt="LightGBM" title="Used in 2 projects" /> <img src="https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white" alt="pandas" title="Used in 2 projects" /> <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white" alt="PyTorch" title="Used in 2 projects" /> <img src="https://img.shields.io/badge/Drain3-2F6F8F?style=flat-square" alt="Drain3" title="Used in 1 project" /> <img src="https://img.shields.io/badge/DuckDB-FFF000?style=flat-square&logo=duckdb&logoColor=black" alt="DuckDB" title="Used in 1 project" /> <img src="https://img.shields.io/badge/librosa-5A3E8E?style=flat-square" alt="librosa" title="Used in 1 project" /> <img src="https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white" alt="NumPy" title="Used in 1 project" /> <img src="https://img.shields.io/badge/SciPy-8CAAE6?style=flat-square&logo=scipy&logoColor=black" alt="SciPy" title="Used in 1 project" /></td></tr>
 <tr><td><b>AI and LLMs</b></td><td><img src="https://img.shields.io/badge/LLM%20APIs-7C3AED?style=flat-square&logo=openai&logoColor=white" alt="LLM APIs" title="Used in 3 projects" /> <img src="https://img.shields.io/badge/Embeddings-6D28D9?style=flat-square" alt="Embeddings" title="Used in 1 project" /> <img src="https://img.shields.io/badge/Tool%20calling-5B21B6?style=flat-square" alt="Tool calling" title="Used in 1 project" /></td></tr>
 <tr><td><b>Back end and front end</b></td><td><img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI" title="Used in 3 projects" /> <img src="https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white" alt="Flask" title="Used in 3 projects" /> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white" alt="SQLite" title="Used in 3 projects" /> <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat-square&logo=bootstrap&logoColor=white" alt="Bootstrap" title="Used in 2 projects" /> <img src="https://img.shields.io/badge/Celery-37814A?style=flat-square&logo=celery&logoColor=white" alt="Celery" title="Used in 2 projects" /> <img src="https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white" alt="Redis" title="Used in 2 projects" /> <img src="https://img.shields.io/badge/Vue.js-4FC08D?style=flat-square&logo=vuedotjs&logoColor=white" alt="Vue.js" title="Used in 2 projects" /> <img src="https://img.shields.io/badge/Jinja2-B41717?style=flat-square&logo=jinja&logoColor=white" alt="Jinja2" title="Used in 1 project" /> <img src="https://img.shields.io/badge/python--pptx-B7472A?style=flat-square" alt="python-pptx" title="Used in 1 project" /></td></tr>
 <tr><td><b>Areas</b></td><td><code>Audio</code> <code>Business analysis</code> <code>Business strategy</code> <code>Classification</code> <code>Computer vision</code> <code>DenseNet</code> <code>Estimation</code> <code>Financial analysis</code> <code>NLP</code> <code>Regression</code> <code>Root-cause analysis</code> <code>TF-IDF</code> <code>Time series</code> <code>Web scraping</code></td></tr>
